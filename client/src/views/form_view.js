@@ -7,7 +7,7 @@ const FormView = function (element) {
 FormView.prototype.bindEvents = function () {
   this.createForm();
   this.element.addEventListener('submit', (event) => {
-    evt.preventDefault();
+    event.preventDefault();
     console.log(event);
   })
 };
@@ -40,6 +40,11 @@ FormView.prototype.createForm = function () {
   cost.type = 'number';
   this.element.appendChild(costLabel);
   this.element.appendChild(cost);
+
+  const submitFormButton = document.createElement('button');
+  submitFormButton.type = 'submit';
+  submitFormButton.innerHTML = 'Start saving your life!';
+  this.element.appendChild(submitFormButton);
 
 
 };
