@@ -17,6 +17,9 @@ ItemView.prototype.render = function () {
   const cigaretteBrand = this.createBrandElement();
   detailList.appendChild(cigaretteBrand);
 
+  const cigaretteDailyIntake = this.createDailyElement();
+  detailList.appendChild(cigaretteDailyIntake)
+
   this.element.appendChild(element);
 
 };
@@ -31,6 +34,12 @@ ItemView.prototype.createBrandElement = function () {
   const brand = document.createElement('li');
   brand.textContent = `Brand: ${this.itemData.brand}`;
   return brand;
+};
+
+ItemView.prototype.createDailyElement = function () {
+  const daily = document.createElement('li');
+  daily.textContent = `Daily: ${this.itemData.daily}`;
+  return daily;
 };
 
 module.exports = ItemView;
