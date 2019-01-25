@@ -7,8 +7,7 @@ const FormView = function (element) {
 FormView.prototype.bindEvents = function () {
   this.createForm();
   this.element.addEventListener('submit', (event) => {
-    event.preventDefault();
-    console.log(event);
+    this.handleFormSubmit(event);
   })
 };
 
@@ -45,10 +44,16 @@ FormView.prototype.createForm = function () {
   submitFormButton.type = 'submit';
   submitFormButton.innerHTML = 'Start saving your life!';
   this.element.appendChild(submitFormButton);
-
-
 };
 
-
+FormView.prototype.handleFormSubmit = function (event) {
+  event.preventDefault();
+  const newClientInfo = {
+    brand: event.target.cigBrand.value,
+    number: event.target.cigNumber.value,
+    cost: event.target.cost.value
+  }
+  console.log(newClientInfo);
+};
 
 module.exports = FormView;
