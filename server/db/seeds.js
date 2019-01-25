@@ -1,7 +1,7 @@
 use quitsmoking;
 db.dropDatabase();
 
-db.mustDos.insertMany([
+db.cigarettes.insertMany([
   {
     brand: 'Lambert and Butler',
     cost: 10,
