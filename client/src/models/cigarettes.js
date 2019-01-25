@@ -30,7 +30,17 @@ Cigarettes.prototype.getData = function () {
   this.request.get()
     .then((data) => {
       this.info = data.filter((obj) => {
-        return (!obj.brand)
+        return(obj.brand);
+      })
+      PubSub.publish('Cigarettes:data-ready', this.info);
+    })
+};
+
+Cigarettes.prototype.getCigaretteData = function () {
+  this.request.get()
+    .then((data) => {
+      this.info = data.filter((obj) => {
+        return (!obj.brand);
       })
       PubSub.publish('Cigarettes:data-ready', this.info);
     })
