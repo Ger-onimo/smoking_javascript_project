@@ -1,4 +1,4 @@
-use bucketList;
+use quitsmoking;
 db.dropDatabase();
 
 db.mustDos.insertMany([
