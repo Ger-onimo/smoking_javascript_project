@@ -46,4 +46,14 @@ Cigarettes.prototype.getCigaretteData = function () {
     })
 };
 
+Cigarettes.prototype.delete = function () {
+  this.request.delete()
+    .then((data) => {
+      this.info = data.filter((obj) =>{
+        return (!obj.brand);
+      })
+      PubSub.publish('Cigarettes:data-ready', this.info);
+    })
+};
+
 module.exports = Cigarettes;
