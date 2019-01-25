@@ -12,8 +12,18 @@ ContainerView.prototype.eventListener = function() {
   PubSub.subscribe('Cigarettes:data-ready', (evt) => {
     const items = evt.detail;
     // console.log(evt.detail);
-    // this.renderList(items);
+    this.renderContainer(items);
   });
 };
+
+ContainerView.prototype.renderContainer = function (items) {
+  // this.element.innerHTML = '';
+  items.forEach((item) => {
+    debugger;
+    const itemView = new ItemView(this.element, item);
+    itemView.render();
+  })
+};
+
 
 module.exports = ContainerView;
