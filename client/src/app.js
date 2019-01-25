@@ -12,4 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   cigarettes.bindEvents();
   cigarettes.getData();
 
+const container = document.querySelector('section#container-wrapper');
+  const containerView = new ContainerView(container);
+  containerView.bindEvents();
+
 })
