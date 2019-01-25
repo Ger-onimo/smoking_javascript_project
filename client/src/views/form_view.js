@@ -33,6 +33,13 @@ FormView.prototype.createForm = function () {
   this.element.appendChild(cigNumber);
 
   const costLabel = document.createElement('label');
+  costLabel.for = 'cost';
+  costLabel.innerHTML = 'Price per pack';
+  const cost = document.createElement('input');
+  cost.id = 'cost';
+  cost.type = 'number';
+  this.element.appendChild(costLabel);
+  this.element.appendChild(cost);
 
 
 };
