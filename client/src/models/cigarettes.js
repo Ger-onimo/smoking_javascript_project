@@ -26,4 +26,11 @@ Cigarettes.prototype.add = function (newUser) {
 
 };
 
+Cigarettes.prototype.getData = function () {
+  this.request.get()
+    .then((data) => {
+      console.log(data);
+    })
+};
+
 module.exports = Cigarettes;
