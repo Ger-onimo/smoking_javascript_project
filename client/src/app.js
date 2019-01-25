@@ -8,5 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formView = new FormView(form);
   formView.bindEvents()
 
+const cigarettes = new Cigarettes();
+cigarettes.bindEvents();
 
 })

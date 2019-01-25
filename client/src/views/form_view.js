@@ -7,7 +7,8 @@ const FormView = function (element) {
 FormView.prototype.bindEvents = function () {
   this.createForm();
   this.element.addEventListener('submit', (event) => {
-    this.handleFormSubmit(event);
+    const newUser = this.handleFormSubmit(event);
+    PubSub.publish('FormView:new-user', newUser);
   })
 };
 
@@ -33,7 +34,7 @@ FormView.prototype.handleFormSubmit = function (event) {
     number: event.target.cigNumber.value,
     cost: event.target.cost.value
   }
-  console.log(newClientInfo);
+  return newClientInfo;
 };
 
 FormView.prototype.createLabels = function () {
