@@ -5,7 +5,8 @@ const bodyParser = require('body-parser');
 const createRouter = require("./helpers/create_router.js");
 const MongoClient = require("mongodb").MongoClient;
 
-app.use(express.static(path.join(__dirname, '..', 'client', 'public')));
+const publicPath = path.join(__dirname, '../client/public');
+app.use(express.static(publicPath))
 app.use(bodyParser.json());
 
 
@@ -14,7 +15,7 @@ MongoClient.connect("mongodb://localhost:27017")
   const db = client.db("quitsmoking");
   const cigaretteCollection = db.collection("cigarettes");
   const cigaretteRouter = createRouter(cigaretteCollection);
-  app.use("/api/quitsmoking", cigaretteRouter)
+  app.use("/api/quitsmoking", cigaretteRouter);
 })
 .catch(console.error);
 
