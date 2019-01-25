@@ -31,7 +31,7 @@ FormView.prototype.handleFormSubmit = function (event) {
   event.preventDefault();
   const newClientInfo = {
     brand: event.target.cigBrand.value,
-    number: event.target.cigNumber.value,
+    daily: event.target.cigNumber.value,
     cost: event.target.cost.value
   }
   return newClientInfo;
