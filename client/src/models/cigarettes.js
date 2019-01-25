@@ -3,7 +3,8 @@ const PubSub =require('../helpers/pub_sub.js');
 
 
 const Cigarettes = function () {
-
+  this.info = [];
+  this.request = new RequestHelper('/api/quitsmoking')
 };
 
 Cigarettes.prototype.bindEvents = function () {
@@ -12,8 +13,17 @@ Cigarettes.prototype.bindEvents = function () {
     console.log(event);
     this.add(newUser);
   });
-
 };
 
+Cigarettes.prototype.add = function (newUser) {
+  this.request
+   .post(newUser)
+   .then((userInfo) => {
+     this.info = userInfo;
+     PubSub.publish('Cigarettes:data-ready', this.info);
+   })
+   .catch(console.error);
+
+};
 
 module.exports = Cigarettes;
