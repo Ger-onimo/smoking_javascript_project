@@ -29,7 +29,6 @@ Cigarettes.prototype.add = function (newUser) {
 Cigarettes.prototype.getData = function () {
   this.request.get()
     .then((data) => {
-      debugger
       this.info = data.filter((obj) => {
         return (!obj.brand)
       })
