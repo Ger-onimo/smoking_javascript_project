@@ -29,7 +29,11 @@ Cigarettes.prototype.add = function (newUser) {
 Cigarettes.prototype.getData = function () {
   this.request.get()
     .then((data) => {
-      console.log(data);
+      debugger
+      this.info = data.filter((obj) => {
+        return (!obj.brand)
+      })
+      PubSub.publish('Cigarettes:data-ready', this.info);
     })
 };
 
