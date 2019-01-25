@@ -1,18 +1,25 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const ItemView = function (element, item) {
+const ItemView = function (element, itemData) {
   this.element = element;
-  this.item = item;
+  this.itemData = itemData;
 }
 
-ItemView.prototype.render = function (userData) {
-  const smokingContainer = document.createElement('div');
-  smokingContainer.classList.add('smoking-container');
+ItemView.prototype.render = function () {
+  // console.log(this.element);
 
-  const smokingDataList = document.createElement('ul');
-  smokingDataList.classList.add('data-list');
+  const element = document.createElement('div');
+  element.classList.add('smoking-data-container');
 
-  this.element.appendChild(smokingContainer);
+  const detailList = this.createListElement();
+  element.appendChild(detailList);
+
+};
+
+ItemView.prototype.createListElement = function () {
+  const list = document.createElement('ul');
+  list.classList.add('smoker-detail-list');
+  return list;
 };
 
 module.exports = ItemView;

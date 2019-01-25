@@ -5,7 +5,7 @@ const ContainerView = function (element) {
   this.element = element;
 }
 
-ContainerView.prototype.eventListener = function() {
+ContainerView.prototype.bindEvents = function() {
   this.element.addEventListener('submit', function(evt) {
     evt.preventDefault();
   });
@@ -19,7 +19,7 @@ ContainerView.prototype.eventListener = function() {
 ContainerView.prototype.renderContainer = function (items) {
   // this.element.innerHTML = '';
   items.forEach((item) => {
-    debugger;
+    // debugger;
     const itemView = new ItemView(this.element, item);
     itemView.render();
   })
