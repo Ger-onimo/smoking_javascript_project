@@ -28,7 +28,7 @@ ContainerView.prototype.createSmokedButton = function () {
 
 
 ContainerView.prototype.renderContainer = function (items) {
-  // this.element.innerHTML = '';
+  this.element.innerHTML = '';
   items.forEach((item) => {
     // debugger;
     const itemView = new ItemView(this.element, item);
