@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 const SmokedView = function (element) {
   this.element = element;
@@ -7,7 +8,7 @@ const SmokedView = function (element) {
 SmokedView.prototype.bindEvents = function () {
   this.createSmokeButton();
   this.element.addEventListener('click', (event) => {
-    const timestamp = new Date();
+    const timestamp = moment();
     PubSub.publish('SmokedView:user-smoked', timestamp);
   })
 };

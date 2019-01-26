@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 const FormView = function (element) {
   this.element = element;

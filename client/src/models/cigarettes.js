@@ -1,5 +1,6 @@
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub =require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 
 const Cigarettes = function () {
@@ -13,7 +14,12 @@ Cigarettes.prototype.bindEvents = function () {
     this.add(newUser);
   });
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
-    console.log(event.detail);
+    const timestamp = event.detail;
+    const formattedTS = this.formatTimestamp(timestamp);
+    const newSmoke = {
+      timestamp: formattedTS
+    };
+    this.add(newSmoke);
   })
 };
 
@@ -76,4 +82,9 @@ Cigarettes.prototype.update = function (updatedItem) {
     })
 };
 
+
+Cigarettes.prototype.formatTimestamp = function (timestamp) {
+  const formattedTS = timestamp.format("DD/MM/YYYY HH:mm:ss");
+  return formattedTS;
+};
 module.exports = Cigarettes;
