@@ -8,11 +8,14 @@ const ItemView = function (element, itemData) {
 ItemView.prototype.render = function () {
   // console.log(this.element);
 
-  const element = document.createElement('div');
+  const element = document.createElement('ul');
   element.classList.add('smoking-data-container');
 
-  const detailList = this.createListElement();
-  element.appendChild(detailList);
+  const listItems = this.createListElement();
+  element.appendChild(listItems);
+
+  const detailList = this.createDetailList();
+  listItems.appendChild(detailList)
 
   const cigaretteBrand = this.createBrandElement();
   detailList.appendChild(cigaretteBrand);
@@ -28,9 +31,14 @@ ItemView.prototype.render = function () {
 };
 
 ItemView.prototype.createListElement = function () {
-  const list = document.createElement('ul');
+  const list = document.createElement('li');
   list.classList.add('smoker-detail-list');
   return list;
+};
+
+ItemView.prototype.createDetailList = function () {
+  const detailList = document.createElement('ul');
+  return detailList;
 };
 
 ItemView.prototype.createBrandElement = function () {
