@@ -1,7 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const ItemView = require('./item_view.js');
 const SmokedView = require('./smoked_view.js');
-const TimerView = require('./timer_view.js'); //timer
+const TimerView = require('./timer_view.js'); /////timer
 
 const ContainerView = function (element) {
   this.element = element;
@@ -9,7 +9,7 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
-  // this.createTimer();  //timer
+  this.createTimer();  //timer
   this.element.addEventListener('submit', function(evt) {
     evt.preventDefault();
   });
@@ -24,14 +24,14 @@ ContainerView.prototype.createSmokedButton = function () {
   smokeButton.bindEvents();
 };
 
-//timer
+////////timer
 
-// ContainerView.prototype.createTimer = function () {
-//   const timer = new TimerView(this.element);
-//   timer.bindEvents();
-// };
+ContainerView.prototype.createTimer = function () {
+  const timer = new TimerView(this.element);
+  timer.bindEvents();
+};
 
-//
+//////
 
 ContainerView.prototype.renderContainer = function (items) {
   items.forEach((item) => {
