@@ -19,7 +19,9 @@ Cigarettes.prototype.add = function (newUser) {
   this.request
    .post(newUser)
    .then((userInfo) => {
-     this.info = userInfo;
+     this.info = userInfo.filter((obj) => {
+       return(obj.brand);
+     });
      PubSub.publish('Cigarettes:data-ready', this.info);
    })
    .catch(console.error);
@@ -27,7 +29,8 @@ Cigarettes.prototype.add = function (newUser) {
 };
 
 Cigarettes.prototype.getData = function () {
-  this.request.get()
+  this.request
+    .get()
     .then((data) => {
       this.info = data.filter((obj) => {
         return(obj.brand);
@@ -37,7 +40,8 @@ Cigarettes.prototype.getData = function () {
 };
 
 Cigarettes.prototype.getCigaretteData = function () {
-  this.request.get()
+  this.request
+    .get()
     .then((data) => {
       this.info = data.filter((obj) => {
         return (!obj.brand);
@@ -46,10 +50,24 @@ Cigarettes.prototype.getCigaretteData = function () {
     })
 };
 
-Cigarettes.prototype.delete = function () {
-  this.request.delete()
+Cigarettes.prototype.delete = function (deletedItem) {
+  const id = deletedItem.id;
+  this.request
+    .delete(id)
     .then((data) => {
       this.info = data.filter((obj) =>{
+        return (!obj.brand);
+      })
+      PubSub.publish('Cigarettes:data-ready', this.info);
+    })
+};
+
+Cigarettes.prototype.update = function (updatedItem) {
+  const id = updatedItem.id;
+  this.request
+    .put(updatedItem, id)
+    .then((data) => {
+      this.info = data.filter((obj) => {
         return (!obj.brand);
       })
       PubSub.publish('Cigarettes:data-ready', this.info);
