@@ -7,8 +7,8 @@ const SmokedView = function (element) {
 SmokedView.prototype.bindEvents = function () {
   this.createSmokeButton();
   this.element.addEventListener('click', (event) => {
-    console.log(event);
-    // PubSub.publish('FormView:new-user', newUser);
+    const timestamp = new Date();
+    PubSub.publish('SmokedView:user-smoked', timestamp);
   })
 };
 

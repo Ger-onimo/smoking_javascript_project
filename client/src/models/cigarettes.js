@@ -10,9 +10,11 @@ const Cigarettes = function () {
 Cigarettes.prototype.bindEvents = function () {
   PubSub.subscribe('FormView:new-user', (event) => {
     const newUser = event.detail;
-    console.log(event);
     this.add(newUser);
   });
+  PubSub.subscribe('SmokedView:user-smoked', (event) => {
+    console.log(event.detail);
+  })
 };
 
 Cigarettes.prototype.add = function (newUser) {
