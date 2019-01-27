@@ -1,5 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
-const ItemView = require('./item_view.js');
+const UserDetailsView = require('./user_details_view.js');
 const SmokedView = require('./smoked_view.js');
 
 const ContainerView = function (element) {
@@ -11,8 +11,7 @@ ContainerView.prototype.bindEvents = function() {
   this.createInputData();
   PubSub.subscribe('Cigarettes:data-ready', (evt) => {
     const items = evt.detail;
-    this.renderContainer(items);
-    debugger
+    this.renderInputData(items);
   });
 };
 
@@ -27,12 +26,12 @@ ContainerView.prototype.createInputData = function () {
   this.element.appendChild(inputData);
 };
 
-ContainerView.prototype.renderContainer = function (items) {
+ContainerView.prototype.renderInputData = function (items) {
   const dataContainer = document.getElementById('input-data-container');
   dataContainer.innerHTML = '';
   items.forEach((item) => {
-    const itemView = new ItemView(dataContainer, item);
-    itemView.render();
+    const userDetailsView = new UserDetailsView(dataContainer, item);
+    userDetailsView.render();
   })
 };
 
