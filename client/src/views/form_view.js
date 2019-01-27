@@ -7,6 +7,7 @@ const FormView = function (element) {
 
 FormView.prototype.bindEvents = function () {
   this.createForm();
+  this.hideForm();
   this.element.addEventListener('submit', (event) => {
     const newUser = this.handleFormSubmit(event);
     PubSub.publish('FormView:new-user', newUser);
@@ -71,6 +72,20 @@ FormView.prototype.createInputs = function () {
 
   const inputs = [cigType, cigNumber, cost];
   return inputs;
+};
+
+FormView.prototype.hideForm = function () {
+  const button = document.getElementById('login');
+  button.addEventListener('click', (event) => {
+    debugger
+    let form = document.getElementById('initial-entry-form');
+    if (form.style.display === 'block') {
+      form.style.display = 'none';
+    }
+    else {
+      form.style.display = 'block';
+    }
+  });
 };
 
 module.exports = FormView;

@@ -19,8 +19,6 @@ ContainerView.prototype.createSmokedButton = function () {
   smokeButton.bindEvents();
 };
 
-
-
 ContainerView.prototype.renderContainer = function (items) {
   items.forEach((item) => {
     const itemView = new ItemView(this.element, item);
