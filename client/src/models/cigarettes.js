@@ -43,7 +43,6 @@ Cigarettes.prototype.getData = function () {
   this.request
     .get()
     .then((data) => {
-      this.timestampPlay(data);
       this.info = data.filter((obj) => {
         return(obj.brand);
       })
@@ -84,14 +83,6 @@ Cigarettes.prototype.update = function (updatedItem) {
       })
       PubSub.publish('Cigarettes:data-ready', this.info);
     })
-};
-
-Cigarettes.prototype.timestampPlay = function (data) {
-  console.log(data);
-  const now = moment();
-  const before = moment(data[12].timestamp);
-  const diff = moment.duration(now.diff(before));
-  console.log(diff.asMilliseconds());
 };
 
 module.exports = Cigarettes;
