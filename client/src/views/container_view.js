@@ -10,6 +10,7 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
+  this.createTimer();
   this.createInputData();
   this.createCigaretteData();
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
@@ -21,6 +22,15 @@ ContainerView.prototype.bindEvents = function() {
     this.renderCigaretteData(items)
   });
 };
+
+////////timer
+
+ContainerView.prototype.createTimer = function () {
+  const timer = new TimerView(this.element);
+  timer.bindEvents();
+};
+
+//////
 
 ContainerView.prototype.createSmokedButton = function () {
   const smokeButton = new SmokedView(this.element);
