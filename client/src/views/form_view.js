@@ -32,7 +32,7 @@ FormView.prototype.createForm = function () {
 
 FormView.prototype.handleFormSubmit = function (event) {
   event.preventDefault();
-  const timestamp = moment().format('DD/MM/YYYY HH:mm:ss');
+  const timestamp = moment();
   const newClientInfo = {
     brand: event.target.cigBrand.value,
     daily: event.target.cigNumber.value,

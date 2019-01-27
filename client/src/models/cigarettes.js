@@ -18,9 +18,8 @@ Cigarettes.prototype.bindEvents = function () {
   });
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timestamp = event.detail;
-    const formattedTS = this.formatTimestamp(timestamp);
     const newSmoke = {
-      timestamp: formattedTS
+      timestamp: timestamp
     };
     this.add(newSmoke);
     this.getCigaretteData();
@@ -44,6 +43,7 @@ Cigarettes.prototype.getData = function () {
   this.request
     .get()
     .then((data) => {
+      this.timestampPlay(data);
       this.info = data.filter((obj) => {
         return(obj.brand);
       })
@@ -86,9 +86,12 @@ Cigarettes.prototype.update = function (updatedItem) {
     })
 };
 
-Cigarettes.prototype.formatTimestamp = function (timestamp) {
-  const formattedTS = timestamp.format("DD/MM/YYYY HH:mm:ss");
-  return formattedTS;
+Cigarettes.prototype.timestampPlay = function (data) {
+  console.log(data);
+  const now = moment();
+  const before = moment(data[12].timestamp);
+  const diff = moment.duration(now.diff(before));
+  console.log(diff.asMilliseconds());
 };
 
 module.exports = Cigarettes;
