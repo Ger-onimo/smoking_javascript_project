@@ -8,9 +8,11 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
+  this.createInputData();
   PubSub.subscribe('Cigarettes:data-ready', (evt) => {
     const items = evt.detail;
     this.renderContainer(items);
+    debugger
   });
 };
 
@@ -19,9 +21,17 @@ ContainerView.prototype.createSmokedButton = function () {
   smokeButton.bindEvents();
 };
 
+ContainerView.prototype.createInputData = function () {
+  const inputData = document.createElement('div');
+  inputData.id = 'input-data-container';
+  this.element.appendChild(inputData);
+};
+
 ContainerView.prototype.renderContainer = function (items) {
+  const dataContainer = document.getElementById('input-data-container');
+  dataContainer.innerHTML = '';
   items.forEach((item) => {
-    const itemView = new ItemView(this.element, item);
+    const itemView = new ItemView(dataContainer, item);
     itemView.render();
   })
 };
