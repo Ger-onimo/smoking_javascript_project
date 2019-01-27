@@ -9,29 +9,27 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
-  // this.createTimer();  //timer
-  this.element.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-  });
+  this.createTimer();  //timer
   PubSub.subscribe('Cigarettes:data-ready', (evt) => {
     const items = evt.detail;
     this.renderContainer(items);
   });
 };
 
+
 ContainerView.prototype.createSmokedButton = function () {
   const smokeButton = new SmokedView(this.element);
   smokeButton.bindEvents();
 };
 
-// ////////timer
-//
-// ContainerView.prototype.createTimer = function () {
-//   const timer = new TimerView(this.element);
-//   timer.bindEvents();
-// };
-//
-// //////
+////////timer
+
+ContainerView.prototype.createTimer = function () {
+  const timer = new TimerView(this.element);
+  timer.bindEvents();
+};
+
+//////
 
 ContainerView.prototype.renderContainer = function (items) {
   items.forEach((item) => {
