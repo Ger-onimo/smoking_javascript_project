@@ -7,6 +7,7 @@ const TimerView = function (element) {
 
 TimerView.prototype.bindEvents = function () {
   this.createTimer();
+  this.runTimer();
 };
 
 TimerView.prototype.createTimer = function () {
@@ -20,5 +21,15 @@ TimerView.prototype.createTimer = function () {
   this.element.appendChild(container);
 
 };
+
+
+TimerView.prototype.runTimer = function () {
+  let time = document.getElementsByTagName('time')[0],
+    reset = document.getElementById('reset'),
+    seconds = 0, minutes = 0, hours = 0, days = 0,
+    t;
+
+  }
+
 
 module.exports = TimerView;
