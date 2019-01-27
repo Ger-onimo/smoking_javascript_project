@@ -9,7 +9,7 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
-  this.createTimer();  //timer
+  // this.createTimer();  //timer
   this.element.addEventListener('submit', function(evt) {
     evt.preventDefault();
   });
@@ -24,14 +24,14 @@ ContainerView.prototype.createSmokedButton = function () {
   smokeButton.bindEvents();
 };
 
-////////timer
-
-ContainerView.prototype.createTimer = function () {
-  const timer = new TimerView(this.element);
-  timer.bindEvents();
-};
-
-//////
+// ////////timer
+//
+// ContainerView.prototype.createTimer = function () {
+//   const timer = new TimerView(this.element);
+//   timer.bindEvents();
+// };
+//
+// //////
 
 ContainerView.prototype.renderContainer = function (items) {
   items.forEach((item) => {
