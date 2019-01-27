@@ -6,8 +6,8 @@ const SmokedView = function (element) {
 }
 
 SmokedView.prototype.bindEvents = function () {
-  this.createSmokeButton();
-  this.element.addEventListener('click', (event) => {
+  const button = this.createSmokeButton();
+  button.addEventListener('click', (event) => {
     const timestamp = moment();
     PubSub.publish('SmokedView:user-smoked', timestamp);
   })
@@ -21,6 +21,7 @@ SmokedView.prototype.createSmokeButton = function () {
   smokeButton.textContent = "I smoked";
   container.appendChild(smokeButton);
   this.element.appendChild(container);
+  return smokeButton
 };
 
 module.exports = SmokedView;

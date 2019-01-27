@@ -82,9 +82,9 @@ Cigarettes.prototype.update = function (updatedItem) {
     })
 };
 
-
 Cigarettes.prototype.formatTimestamp = function (timestamp) {
   const formattedTS = timestamp.format("DD/MM/YYYY HH:mm:ss");
   return formattedTS;
 };
+
 module.exports = Cigarettes;
