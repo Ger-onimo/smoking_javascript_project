@@ -8,9 +8,9 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
-  this.element.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-  });
+  // this.element.addEventListener('submit', function(evt) {
+  //   evt.preventDefault();
+  // });
   PubSub.subscribe('Cigarettes:data-ready', (evt) => {
     const items = evt.detail;
     this.renderContainer(items);
