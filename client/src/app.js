@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cigarettes = new Cigarettes();
   cigarettes.bindEvents();
-  cigarettes.getData();
 
 const container = document.querySelector('section#container-wrapper');
   const containerView = new ContainerView(container);
