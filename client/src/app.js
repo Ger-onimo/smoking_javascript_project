@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const formView = new FormView(form);
   formView.bindEvents()
 
-const cigarettes = new Cigarettes();
-cigarettes.bindEvents();
+  const cigarettes = new Cigarettes();
+  cigarettes.bindEvents();
+
+  const container = document.querySelector('section#container-wrapper');
+  const containerView = new ContainerView(container);
+  containerView.bindEvents();
 
 })
