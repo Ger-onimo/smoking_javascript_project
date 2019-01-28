@@ -7,7 +7,6 @@ const MotivationView = function (element) {
 MotivationView.prototype.bindEvents = function () {
 
   PubSub.subscribe('FormView:new-user', (event) => {
-    debugger;
 this.createMotivContainer();
   });
 
@@ -24,5 +23,10 @@ MotivationView.prototype.createMotivContainer = function () {
   container.appendChild(motive);
   this.element.appendChild(container);
 };
+
+const randMotivation = new RandMotivation();
+const motivation = randMotivation.get();
+const message = `  ${motivation}.`;
+messageElement.textContent = message;
 
 module.exports = MotivationView;
