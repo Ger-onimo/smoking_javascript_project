@@ -32,12 +32,7 @@ FormView.prototype.createForm = function () {
   submitFormButton.id = 'submit-form';
   submitFormButton.type = 'submit';
   submitFormButton.innerHTML = 'Start saving your life!';
-  const editUserButton = document.createElement('button');
-  editUserButton.id = 'edit-form';
-  editUserButton.type = 'submit';
-  editUserButton.innerHTML = 'Edit details';
   this.element.appendChild(submitFormButton);
-  this.element.appendChild(editUserButton);
 };
 
 FormView.prototype.handleFormSubmit = function (event) {
