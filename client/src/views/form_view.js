@@ -3,6 +3,7 @@ const moment = require('moment');
 
 const FormView = function (element) {
   this.element = element;
+  this.user;
 }
 
 FormView.prototype.bindEvents = function () {
@@ -12,6 +13,9 @@ FormView.prototype.bindEvents = function () {
     this.hideForm();
     const newUser = this.handleFormSubmit(event);
     PubSub.publish('FormView:new-user', newUser);
+  });
+  PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
+    this.user = event.detail[0];
   })
 };
 
@@ -25,21 +29,38 @@ FormView.prototype.createForm = function () {
   }
 
   const submitFormButton = document.createElement('button');
+  submitFormButton.id = 'submit-form';
   submitFormButton.type = 'submit';
   submitFormButton.innerHTML = 'Start saving your life!';
+  const editUserButton = document.createElement('button');
+  editUserButton.id = 'edit-form';
+  editUserButton.type = 'submit';
+  editUserButton.innerHTML = 'Edit details';
   this.element.appendChild(submitFormButton);
+  this.element.appendChild(editUserButton);
 };
 
 FormView.prototype.handleFormSubmit = function (event) {
   event.preventDefault();
-  const timestamp = moment();
-  const newClientInfo = {
-    brand: event.target.cigBrand.value,
-    daily: event.target.cigNumber.value,
-    cost: event.target.cost.value,
-    timestamp: timestamp
+  if (!this.user) {
+    const timestamp = moment();
+    const newClientInfo = {
+      brand: event.target.cigBrand.value,
+      daily: event.target.cigNumber.value,
+      cost: event.target.cost.value,
+      timestamp: timestamp
+    }
+    return newClientInfo;
   }
-  return newClientInfo;
+  else {
+    const editClientInfo = {
+      id: this.user._id,
+      brand: event.target.cigBrand.value,
+      daily: event.target.cigNumber.value,
+      cost: event.target.cost.value,
+    }
+    return editClientInfo;
+  }
 };
 
 FormView.prototype.createLabels = function () {

@@ -4,7 +4,7 @@ const TimeStampCalculations = require('../helpers/timestamp_calculations.js');
 
 const Savings = function () {
   this.pack = 20;
-  this.timediff.timeBetween(); = new TimeStampCalculations();
+  // this.timediff.timeBetween() = new TimeStampCalculations();
 };
 
 // TODO: daily savings accummulator

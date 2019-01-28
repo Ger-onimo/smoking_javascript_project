@@ -4,6 +4,7 @@ const SmokedView = require('./smoked_view.js');
 const CigaretteDetailsView = require('./cigarette_detail_view.js');
 const TimerView = require('./timer_view.js'); /////timer
 const SavingsView = require('./savings_view.js') ///savings
+const MotivationView = require('./motivation_view.js')
 
 const ContainerView = function (element) {
   this.element = element;
@@ -11,6 +12,7 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
+  this.createMotivation();
   this.createTimer();
   this.createSavings();
   this.createInputData();
@@ -19,6 +21,10 @@ ContainerView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderInputData(items);
   });
+  PubSub.subscribe('Cigarettes:update-ready', (event) => {
+    const items = event.detail;
+    this.renderInputData(items)
+  })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (evt) =>{
     const items = evt.detail;
     this.renderCigaretteData(items)
@@ -42,6 +48,12 @@ ContainerView.prototype.createTimer = function () {
 };
 
 //////
+
+
+ContainerView.prototype.createMotivation = function () {
+  const motivation = new MotivationView(this.element);
+  motivation.bindEvents();
+};
 
 ContainerView.prototype.createSmokedButton = function () {
   const smokeButton = new SmokedView(this.element);
