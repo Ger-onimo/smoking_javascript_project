@@ -9,10 +9,19 @@ TimerView.prototype.bindEvents = function () {
   const timer = new TimerFunction();
 
   PubSub.subscribe('FormView:new-user', (event) => {
-      this.createTimer();
-      timer.runTimer();
-  })
+    this.createTimer();
+    timer.runTimer();
+  });
+
+  PubSub.subscribe('SmokedView:user-smoked', (event) => {
+    const timerContainer = document.getElementById('timer-container');
+    this.element.removeChild(timerContainer);
+    this.createTimer();
+    timer.runTimer();
+  });
+
 };
+
 
 TimerView.prototype.createTimer = function () {
   const container = document.createElement('div');
@@ -23,5 +32,7 @@ TimerView.prototype.createTimer = function () {
   container.appendChild(timer);
   this.element.appendChild(container);
 };
+
+
 
 module.exports = TimerView;
