@@ -20,7 +20,6 @@ Cigarettes.prototype.bindEvents = function () {
       return this.add(user);
     }
     else{
-      debugger
       return this.update(user);
     }
   });
