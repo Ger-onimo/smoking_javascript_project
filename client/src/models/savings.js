@@ -1,9 +1,10 @@
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub =require('../helpers/pub_sub.js');
-const TimerFunction = require('../helpers/timestamp_calculations.js');
+const TimeStampCalculations = require('../helpers/timestamp_calculations.js');
 
 const Savings = function () {
   this.pack = 20;
+  this.timestamp = new TimeStampCalculations();
 };
 
 // daily savings accummulator
@@ -14,21 +15,11 @@ const Savings = function () {
 /// hardcoded long version of saving calculation:
 Savings.prototype.dailySavingCalculator = function () {
 
-  const singleCigCost = cost.value/this.pack; // pack is constant in constructor line 8
-  const dailySaving = daily.value * singleCigCost;
-  const savingToDate = dailySaving * TimerFunction;
+  // const singleCigCost = cost.value/this.pack; // pack is constant in constructor line 8
+  // const dailySaving = daily.value * singleCigCost;
+  // const savingToDate = dailySaving * this.timestamp;
+  const savingToDate = 12
   return savingToDate;
 };
 
 module.exports = Savings;
-
-
-
-
-
-/// function for getting the number of days since stopped smoking
-// Savings.prototype.daysSinceStopped = function (timestamp) {
-//   const difference = current date - timestamp day decided to quit
-//   //current date from smoked button/Date.now - not sure
-//   return difference;
-// };
