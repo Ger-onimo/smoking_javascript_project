@@ -17,20 +17,20 @@ ContainerView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderInputData(items);
   });
+  PubSub.subscribe('Cigarettes:update-ready', (event) => {
+    const items = event.detail;
+    this.renderInputData(items)
+  })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (evt) =>{
     const items = evt.detail;
     this.renderCigaretteData(items)
   });
 };
 
-////////timer
-
 ContainerView.prototype.createTimer = function () {
   const timer = new TimerView(this.element);
   timer.bindEvents();
 };
-
-//////
 
 ContainerView.prototype.createSmokedButton = function () {
   const smokeButton = new SmokedView(this.element);
