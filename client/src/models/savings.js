@@ -1,11 +1,9 @@
-
 const RequestHelper = require('../helpers/request_helper.js');
 const PubSub =require('../helpers/pub_sub.js');
+const TimerFunction = require('../helpers/timestamp_calculations.js');
 
 const Savings = function () {
   this.pack = 20;
-  this.daysSinceStopped = 172,800,000/(1000*60*60*24) //2 days
-
 };
 
 // daily savings accummulator
@@ -18,7 +16,7 @@ Savings.prototype.dailySavingCalculator = function () {
 
   const singleCigCost = cost.value/this.pack; // pack is constant in constructor line 8
   const dailySaving = daily.value * singleCigCost;
-  const savingToDate = dailySaving * this.daysSinceStopped;
+  const savingToDate = dailySaving * TimerFunction;
   return savingToDate;
 };
 

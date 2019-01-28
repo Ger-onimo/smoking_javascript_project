@@ -1,4 +1,4 @@
-const motivation = [
+const motivation = {motivation: [
 "In Northern Ireland 2,700–3,000 people die every year from tobacco use",
 
 "Around 106,000 people in the UK are killed by smoking every year, accounting for one fifth of all UK deaths",
@@ -46,6 +46,7 @@ const motivation = [
 "Over twice as many people smoke who are unskilled manual workers (44%) compared to those in the employer/manager category (21%) and three times as many as those in the professional (13%) category",
 
 "Smoking is the main cause of Chronic Obstructive Pulmonary Disease (COPD). In Great Britain 80% of deaths from the disease are attributed to smoking. By applying this figure to statistics provided by the Northern Ireland Census Office (1995-2004), it can be estimated that an average of 500 people die every year in Northern Ireland as a result of smoking related COPD"]
+}
 
 
 
