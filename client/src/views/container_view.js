@@ -12,6 +12,7 @@ const ContainerView = function (element) {
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
   this.createTimer();
+  this.createSavings();
   this.createInputData();
   this.createCigaretteData();
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
@@ -27,7 +28,7 @@ ContainerView.prototype.bindEvents = function() {
 ////////savings
 
 ContainerView.prototype.createSavings = function () {
-  const timer = new SavingsView(this.element);
+  const saving = new SavingsView(this.element);
   saving.bindEvents();
 };
 

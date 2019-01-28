@@ -1,5 +1,5 @@
 const RequestHelper = require('../helpers/request_helper.js');
-const PubSub =require('../helpers/pub_sub.js');
+const PubSub = require('../helpers/pub_sub.js');
 const TimeStampCalculations = require('../helpers/timestamp_calculations.js');
 
 const Savings = function () {
