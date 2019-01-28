@@ -14,9 +14,10 @@ TimerView.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
-    timer.innerHTML = '';
-    timer.resetTimer();
-    // timer.runTimer();
+    const timerContainer = document.getElementById('timer-container');
+    timerContainer.innerHTML = '';
+    this.createTimer();
+    timer.runTimer();
   });
 
 };
