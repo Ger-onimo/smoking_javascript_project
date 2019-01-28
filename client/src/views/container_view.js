@@ -19,13 +19,16 @@ ContainerView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderInputData(items);
   });
+  PubSub.subscribe('Cigarettes:update-ready', (event) => {
+    const items = event.detail;
+    this.renderInputData(items)
+  })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (evt) =>{
     const items = evt.detail;
+    debugger
     this.renderCigaretteData(items)
   });
 };
-
-////////timer
 
 ContainerView.prototype.createTimer = function () {
   const timer = new TimerView(this.element);
