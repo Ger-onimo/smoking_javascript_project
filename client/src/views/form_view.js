@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 const FormView = function (element) {
   this.element = element;
@@ -6,7 +7,9 @@ const FormView = function (element) {
 
 FormView.prototype.bindEvents = function () {
   this.createForm();
+  this.loginButton();
   this.element.addEventListener('submit', (event) => {
+    this.hideForm();
     const newUser = this.handleFormSubmit(event);
     PubSub.publish('FormView:new-user', newUser);
   })
@@ -29,10 +32,12 @@ FormView.prototype.createForm = function () {
 
 FormView.prototype.handleFormSubmit = function (event) {
   event.preventDefault();
+  const timestamp = moment().format('DD/MM/YYYY HH:mm:ss');
   const newClientInfo = {
     brand: event.target.cigBrand.value,
     daily: event.target.cigNumber.value,
-    cost: event.target.cost.value
+    cost: event.target.cost.value,
+    timestamp: timestamp
   }
   return newClientInfo;
 };
@@ -70,6 +75,23 @@ FormView.prototype.createInputs = function () {
 
   const inputs = [cigType, cigNumber, cost];
   return inputs;
+};
+
+FormView.prototype.loginButton = function () {
+  const button = document.getElementById('login');
+  button.addEventListener('click', (event) => {
+    this.hideForm();
+  })
+};
+
+FormView.prototype.hideForm = function () {
+  let form = document.getElementById('initial-entry-form');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
 };
 
 module.exports = FormView;
