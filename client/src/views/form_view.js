@@ -32,7 +32,7 @@ FormView.prototype.createForm = function () {
 
 FormView.prototype.handleFormSubmit = function (event) {
   event.preventDefault();
-  const timestamp = moment().format('DD/MM/YYYY HH:mm:ss');
+  const timestamp = moment();
   const newClientInfo = {
     brand: event.target.cigBrand.value,
     daily: event.target.cigNumber.value,
@@ -68,10 +68,12 @@ FormView.prototype.createInputs = function () {
   const cigNumber = document.createElement('input');
   cigNumber.id = 'cigNumber';
   cigNumber.type = 'number';
+  cigNumber.min = 1;
 
   const cost = document.createElement('input');
   cost.id = 'cost';
   cost.type = 'number';
+  cost.min = 1;
 
   const inputs = [cigType, cigNumber, cost];
   return inputs;
