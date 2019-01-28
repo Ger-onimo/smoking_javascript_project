@@ -63,7 +63,7 @@ Cigarettes.prototype.getCigaretteData = function () {
     .get()
     .then((data) => {
       this.info = data.filter((obj) => {
-        return (!obj.brand);
+        return (!obj.brand && !obj.motivation);
       })
 
       PubSub.publish('Cigarettes:cigarette-data-ready', this.info);

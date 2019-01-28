@@ -23,6 +23,7 @@ ContainerView.prototype.bindEvents = function() {
   })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (evt) =>{
     const items = evt.detail;
+    debugger
     this.renderCigaretteData(items)
   });
 };
