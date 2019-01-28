@@ -7,14 +7,13 @@ const Savings = function () {
   this.timestamp = new TimeStampCalculations();
 };
 
-// daily savings accummulator
+// TODO: daily savings accummulator
 
 // each daily saving add to accummulator
 // use a reduce or code an accummulator
 
 /// hardcoded long version of saving calculation:
 Savings.prototype.dailySavingCalculator = function () {
-
   // const singleCigCost = cost.value/this.pack; // pack is constant in constructor line 8
   // const dailySaving = daily.value * singleCigCost;
   // const savingToDate = dailySaving * this.timestamp;
