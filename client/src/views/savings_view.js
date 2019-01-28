@@ -19,7 +19,7 @@ SavingsView.prototype.createSavings = function () {
   container.id = 'savings-container';
   const savings = document.createElement('h3');
   savings.classList.add('saving-accumulator');
-  savings.textContent = `Savings = ${this.savings}`;
+  savings.textContent = `Saving total: £${this.savings}`;
   container.appendChild(savings);
   this.element.appendChild(container);
 };

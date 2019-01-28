@@ -4,7 +4,7 @@ const TimeStampCalculations = require('../helpers/timestamp_calculations.js');
 
 const Savings = function () {
   this.pack = 20;
-  this.timestamp = new TimeStampCalculations();
+  this.timediff.timeBetween(); = new TimeStampCalculations();
 };
 
 // TODO: daily savings accummulator
@@ -12,13 +12,16 @@ const Savings = function () {
 // each daily saving add to accummulator
 // use a reduce or code an accummulator
 
-/// hardcoded long version of saving calculation:
 Savings.prototype.dailySavingCalculator = function () {
-  // const singleCigCost = cost.value/this.pack; // pack is constant in constructor line 8
-  // const dailySaving = daily.value * singleCigCost;
-  // const savingToDate = dailySaving * this.timestamp;
-  const savingToDate = 12
-  return savingToDate;
+  PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
+    console.log(event.detail[0]);
+  })
+  // debugger
+    const singleCigCost = event.detail.cost/this.pack;
+    const dailySaving = event.detail.daily * singleCigCost;
+    const savingToDate = dailySaving * 2;
+
+  return savingToDate.toFixed(2);
 };
 
 module.exports = Savings;
