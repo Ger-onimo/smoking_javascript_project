@@ -4,7 +4,8 @@ const PubSub =require('../helpers/pub_sub.js');
 
 const Cigarettes = function () {
   this.info = [];
-  this.request = new RequestHelper('/api/quitsmoking')
+  this.request = new RequestHelper('/api/quitsmoking');
+  this.pack = 20;
 };
 
 Cigarettes.prototype.bindEvents = function () {
@@ -25,5 +26,8 @@ Cigarettes.prototype.add = function (newUser) {
    .catch(console.error);
 
 };
+
+
+
 
 module.exports = Cigarettes;
