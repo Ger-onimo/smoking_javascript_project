@@ -11,6 +11,14 @@ const randMotivation = new RandMotivation();
     this.text = randMotivation.get();
     this.createMotivContainer();
 
+
+  });
+
+  PubSub.subscribe('SmokedView:user-smoked', (event) => {
+    const motivContainer = document.getElementById('motive-container');
+    this.element.removeChild(motivContainer);
+    this.text = randMotivation.get();
+    this.createMotivContainer();
   });
 
 };
