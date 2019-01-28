@@ -5,7 +5,7 @@ const TimestampCalculations = function () {
 
 };
 
-TimestampCalculations.prototype.timeBetween = function (earlyTime, latestTime) {
+TimestampCalculations.prototype.timeBetween = function (latestTime, earlyTime) {
   const diff = moment.duration(latestTime.diff(earlyTime));
   console.log(diff);
 };

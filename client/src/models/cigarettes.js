@@ -1,11 +1,13 @@
 const RequestHelper = require('../helpers/request_helper.js');
-const PubSub =require('../helpers/pub_sub.js');
+const PubSub = require('../helpers/pub_sub.js');
+const TimeStampCalculations = require('../helpers/timestamp_calculations.js')
 const moment = require('moment');
 
 
 const Cigarettes = function () {
   this.info = [];
-  this.request = new RequestHelper('/api/quitsmoking')
+  this.request = new RequestHelper('/api/quitsmoking');
+  this.timestamp = new TimeStampCalculations();
 };
 
 Cigarettes.prototype.bindEvents = function () {
@@ -57,6 +59,7 @@ Cigarettes.prototype.getCigaretteData = function () {
       this.info = data.filter((obj) => {
         return (!obj.brand);
       })
+      
       PubSub.publish('Cigarettes:cigarette-data-ready', this.info);
     })
 };
@@ -84,5 +87,7 @@ Cigarettes.prototype.update = function (updatedItem) {
       PubSub.publish('Cigarettes:data-ready', this.info);
     })
 };
+
+
 
 module.exports = Cigarettes;
