@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Javascript Loaded');
   const form = document.querySelector('form#initial-entry-form');
   const formView = new FormView(form);
-  const messageElement = document.querySelector('p.message'); //
+  // const messageElement = document.querySelector('p.message'); //
   formView.bindEvents()
 
   const cigarettes = new Cigarettes();
@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const containerView = new ContainerView(container);
   containerView.bindEvents();
 
-const randMotivation = new RandMotivation(); //
-const motivation = randMotivation.get();  //
-const message = `  ${motivation}.`; //
-messageElement.textContent = message; //
+// const randMotivation = new RandMotivation(); //
+// const motivation = randMotivation.get();  //
+// const message = `  ${motivation}.`; //
+// messageElement.textContent = message; //
 })
