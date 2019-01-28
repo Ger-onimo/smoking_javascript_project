@@ -6,7 +6,6 @@ const TimerFunction = function () {
 
 TimerFunction.prototype.runTimer = function () {
   let time = document.getElementsByTagName('time')[0],
-    reset = document.getElementById('reset'),
     seconds = 0, minutes = 0, hours = 0, days = 0,
     t;
 
@@ -40,7 +39,14 @@ TimerFunction.prototype.runTimer = function () {
 
     timer();
 
+
 // timer
+};
+
+TimerFunction.prototype.resetTimer = function () {
+  let time = document.getElementsByTagName('time')[0];
+  time.textContent = "00:00:00:00";
+  seconds = 0; minutes = 0; hours = 0; days = 0;
 };
 
 module.exports = TimerFunction;
