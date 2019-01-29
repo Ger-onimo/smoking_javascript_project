@@ -32,12 +32,8 @@ FormView.prototype.createForm = function () {
   submitFormButton.id = 'submit-form';
   submitFormButton.type = 'submit';
   submitFormButton.innerHTML = 'Start saving your life!';
-  const editUserButton = document.createElement('button');
-  editUserButton.id = 'edit-form';
-  editUserButton.type = 'submit';
-  editUserButton.innerHTML = 'Edit details';
+
   this.element.appendChild(submitFormButton);
-  this.element.appendChild(editUserButton);
 };
 
 FormView.prototype.handleFormSubmit = function (event) {
@@ -85,16 +81,19 @@ FormView.prototype.createInputs = function () {
   cigType.id = 'cigBrand';
   cigType.type = 'text';
   cigType.placeholder = 'Enter Brand..'
+  cigType.required = true;
 
   const cigNumber = document.createElement('input');
   cigNumber.id = 'cigNumber';
   cigNumber.type = 'number';
   cigNumber.min = 1;
+  cigNumber.required = true;
 
   const cost = document.createElement('input');
   cost.id = 'cost';
   cost.type = 'number';
   cost.min = 1;
+  cost.required = true;
 
   const inputs = [cigType, cigNumber, cost];
   return inputs;

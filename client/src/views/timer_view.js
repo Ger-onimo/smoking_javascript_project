@@ -49,13 +49,15 @@ TimerView.prototype.timerButton = function () {
 };
 
 TimerView.prototype.hide = function () {
-  let form = document.getElementById('timer-container');
+  if (document.getElementById('timer-container')) {
+    let form = document.getElementById('timer-container');
 
-  if (form.style.display === 'block') {
-    form.style.display = 'none';
-  }
-  else {
-    form.style.display = 'block';
+    if (form.style.display === 'block') {
+      form.style.display = 'none';
+    }
+    else {
+      form.style.display = 'block';
+    }
   }
 };
 
