@@ -14,7 +14,7 @@ CigaretteDetailsView.prototype.render = function () {
   element.appendChild(listItems);
 
   this.element.appendChild(element);
-this.lapseButton();
+
 };
 
 CigaretteDetailsView.prototype.createListElement = function () {
@@ -22,7 +22,10 @@ CigaretteDetailsView.prototype.createListElement = function () {
   list.classList.add('cigarette-detail');
   list.textContent = this.itemData.timestamp;
   return list;
+
 };
+
+
 
 CigaretteDetailsView.prototype.lapseButton = function () {
   const button = document.getElementById('lapse-button');

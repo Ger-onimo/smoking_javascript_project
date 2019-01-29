@@ -74,6 +74,7 @@ ContainerView.prototype.renderCigaretteData = function (items) {
   items.forEach((item) => {
     const cigaretteDetailView = new CigaretteDetailsView(dataContainer, item);
     cigaretteDetailView.render();
+    cigaretteDetailView.lapseButton();
   })
 };
 
