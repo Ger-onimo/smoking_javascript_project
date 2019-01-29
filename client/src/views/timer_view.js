@@ -10,8 +10,11 @@ TimerView.prototype.bindEvents = function () {
   const timer = new TimerFunction();
 
   PubSub.subscribe('FormView:new-user', (event) => {
-    this.createTimer()
-    timer.runTimer()
+    if (!document.getElementById('timer-container')) {
+      this.createTimer()
+      timer.runTimer()
+    }
+
   });
 
   this.timerButton();
