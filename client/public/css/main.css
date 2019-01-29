@@ -1,3 +1,5 @@
+/* elements */
+
 h1 {
   color: white;
 }
@@ -8,6 +10,10 @@ html {
   color: white;
 }
 
+ul {
+  list-style: none;
+}
+
 /* containers */
 
 #initial-entry-form {
@@ -16,18 +22,30 @@ html {
 
 #motive-container {
   display: none;
+  text-align: center;
+  font-size: 200%;
+  font-family:  'Lato', sans-serif;
 }
 
 #timer-container {
   display: none;
+  text-align: center;
+  font-size: 250%;
+  font-family:  'Lato', sans-serif;
 }
 
 #cigarette-data-container {
   display: none;
+  text-align: center;
+  font-size: 130%;
+  font-family:  'Lato', sans-serif;
 }
 
 #input-data-container {
   display: none;
+  text-align: center;
+  font-size: 130%;
+  font-family:  'Lato', sans-serif;
 }
 
 /* inputs */
