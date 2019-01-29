@@ -19,7 +19,9 @@ MotivationView.prototype.bindEvents = function () {
 
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const motivContainer = document.getElementById('motive-container');
+    if (document.getElementById('motive-container')) {
     this.element.removeChild(motivContainer);
+  }
     this.text = randMotivation.get();
     this.createMotivContainer();
   });
