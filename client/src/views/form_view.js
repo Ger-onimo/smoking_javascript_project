@@ -80,19 +80,21 @@ FormView.prototype.createInputs = function () {
   const cigType = document.createElement('input');
   cigType.id = 'cigBrand';
   cigType.type = 'text';
-  cigType.placeholder = 'Enter Brand..'
+  cigType.placeholder = 'Brand eg Marlboro'
   cigType.required = true;
 
   const cigNumber = document.createElement('input');
   cigNumber.id = 'cigNumber';
   cigNumber.type = 'number';
   cigNumber.min = 1;
+  cigNumber.placeholder = 'Number per day'
   cigNumber.required = true;
 
   const cost = document.createElement('input');
   cost.id = 'cost';
   cost.type = 'number';
   cost.min = 1;
+  cost.placeholder = 'Price per pack (£)'
   cost.required = true;
 
   const inputs = [cigType, cigNumber, cost];
