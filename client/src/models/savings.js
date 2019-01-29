@@ -11,12 +11,13 @@ const Savings = function () {
 
 
 Savings.prototype.bindEvents = function () {
-  PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
-    this.cigaretteData = event.detail;
-  })
   PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
     this.userData = event.detail[0];
   })
+  PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
+    this.cigaretteData = event.detail;
+  })
+
 };
 
 Savings.prototype.dailySavingCalculator = function () {
@@ -31,9 +32,9 @@ Savings.prototype.dailySavingCalculator = function () {
     const dailySaving = this.userData.daily * singleCigCost;
     const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
     const savingToDate = millisecondSaving * timeMS;
-    const roundedSaving = savingToDate.toFixed(2);
-    const final = roundedSaving - totalDeductions;
-    return final;
+    const final = savingToDate - totalDeductions;
+    const roundedFinal = final.toFixed(2);
+    return roundedFinal;
   })
   return savingsArray;
 };

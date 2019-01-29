@@ -16,9 +16,9 @@ ContainerView.prototype.bindEvents = function() {
   this.userDataButton();
   this.createMotivation();
   this.createTimer();
-  this.createSavings();
   this.createInputData();
   this.createCigaretteData();
+  this.createSavings();
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
     const items = evt.detail;
     this.renderInputData(items);

@@ -9,24 +9,29 @@ const SavingsView = function (element) {
 SavingsView.prototype.bindEvents = function () {
   const savingCalc = new Savings();
   savingCalc.bindEvents();
+
   PubSub.subscribe('FormView:new-user', (event) => {
     this.savings = savingCalc.dailySavingCalculator();
+    this.createContainer();
     this.createSavings();
   })
-  PubSub.subscribe('SmokedView:user-smoked', (event) => {
-    debugger
+  PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
     this.savings = savingCalc.dailySavingCalculator();
+    this.createContainer();
     this.createSavings();
   })
-
 };
 
 SavingsView.prototype.createSavings = function () {
+  const savingsElement = document.getElementById('saving-accumulator');
+  savingsElement.textContent = `Saving total: £${this.savings[this.savings.length-1]}`;
+};
+
+SavingsView.prototype.createContainer = function () {
   const container = document.createElement('div');
   container.id = 'savings-container';
   const savings = document.createElement('h3');
-  savings.classList.add('saving-accumulator');
-  savings.textContent = `Saving total: £${this.savings[this.savings.length - 1]}`;
+  savings.id = 'saving-accumulator';
   container.appendChild(savings);
   this.element.appendChild(container);
 };
