@@ -5,3 +5,7 @@ h1 {
 #initial-entry-form {
   display: none;
 }
+
+#motive-container {
+  display: none;
+}
