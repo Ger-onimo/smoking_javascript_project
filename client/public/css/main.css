@@ -108,10 +108,10 @@ input[type=text], [type=number] {
 }
 
 #savings-button {
-  background: url("../img/savingsIcon.png");
+  background: url("../img/savingsIcon2.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: 40%;
+  background-size: 54%;
   height: 120px;
   width: 120px;
   border: none;
