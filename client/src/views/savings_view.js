@@ -8,6 +8,7 @@ const SavingsView = function (element) {
 
 SavingsView.prototype.bindEvents = function () {
   const savingCalc = new Savings();
+  savingCalc.bindEvents();
     PubSub.subscribe('FormView:new-user', (event) => {
       this.savings = savingCalc.dailySavingCalculator();
       this.createSavings();
@@ -19,7 +20,7 @@ SavingsView.prototype.createSavings = function () {
   container.id = 'savings-container';
   const savings = document.createElement('h3');
   savings.classList.add('saving-accumulator');
-  savings.textContent = `Saving total: £${this.savings}`;
+  savings.textContent = `Saving total: £${this.savings[this.savings.length - 1]}`;
   container.appendChild(savings);
   this.element.appendChild(container);
 };
