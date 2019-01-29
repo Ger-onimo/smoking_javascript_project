@@ -62,15 +62,15 @@ FormView.prototype.handleFormSubmit = function (event) {
 FormView.prototype.createLabels = function () {
   const cigLabel = document.createElement('label');
   cigLabel.for = 'cigBrand';
-  cigLabel.innerHTML = 'Brand: ';
+  // cigLabel.innerHTML = 'Brand: ';
 
   const numLabel = document.createElement('label');
   numLabel.for = 'cigNumber';
-  numLabel.innerHTML = 'Number per day: '
+  // numLabel.innerHTML = 'Number per day: '
 
   const costLabel = document.createElement('label');
   costLabel.for = 'cost';
-  costLabel.innerHTML = 'Price per pack (£): ';
+  // costLabel.innerHTML = 'Price per pack (£): ';
 
   const labels = [cigLabel, numLabel, costLabel];
   return labels;
