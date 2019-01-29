@@ -11,6 +11,8 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.createSmokedButton();
+  this.lapseButton();
+  this.userDataButton();
   this.createMotivation();
   this.createTimer();
   this.createInputData();
@@ -33,9 +35,6 @@ ContainerView.prototype.createTimer = function () {
   const timer = new TimerView(this.element);
   timer.bindEvents();
 };
-
-//////
-
 
 ContainerView.prototype.createMotivation = function () {
   const motivation = new MotivationView(this.element);
@@ -74,8 +73,42 @@ ContainerView.prototype.renderCigaretteData = function (items) {
   items.forEach((item) => {
     const cigaretteDetailView = new CigaretteDetailsView(dataContainer, item);
     cigaretteDetailView.render();
-    cigaretteDetailView.lapseButton();
   })
+};
+
+ContainerView.prototype.lapseButton = function () {
+  const button = document.getElementById('lapse-button');
+  button.addEventListener('click', (event) => {
+    this.hideCigaretteData();
+  })
+};
+
+ContainerView.prototype.hideCigaretteData = function () {
+  let form = document.getElementById('cigarette-data-container');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
+};
+
+
+ContainerView.prototype.userDataButton = function () {
+  const button = document.getElementById('userData-button');
+  button.addEventListener('click', (event) => {
+    this.hideUserData();
+  })
+};
+
+ContainerView.prototype.hideUserData = function () {
+  let form = document.getElementById('input-data-container');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
 };
 
 module.exports = ContainerView;

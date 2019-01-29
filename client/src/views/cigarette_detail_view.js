@@ -27,21 +27,22 @@ CigaretteDetailsView.prototype.createListElement = function () {
 
 
 
-CigaretteDetailsView.prototype.lapseButton = function () {
-  const button = document.getElementById('lapse-button');
-  button.addEventListener('click', (event) => {
-    this.hide();
-  })
-};
-
-CigaretteDetailsView.prototype.hide = function () {
-  let form = document.getElementById('cigarette-data-container');
-  if (form.style.display === 'block') {
-    form.style.display = 'none';
-  }
-  else {
-    form.style.display = 'block';
-  }
-};
+// CigaretteDetailsView.prototype.lapseButton = function () {
+//   const button = document.getElementById('lapse-button');
+//   button.addEventListener('click', (event) => {
+//     debugger;
+//     this.hide();
+//   })
+// };
+//
+// CigaretteDetailsView.prototype.hide = function () {
+//   let form = document.getElementById('cigarette-data-container');
+//   if (form.style.display === 'block') {
+//     form.style.display = 'none';
+//   }
+//   else {
+//     form.style.display = 'block';
+//   }
+// };
 
 module.exports = CigaretteDetailsView;
