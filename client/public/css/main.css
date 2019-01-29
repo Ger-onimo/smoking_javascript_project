@@ -16,6 +16,12 @@ ul {
 
 /* containers */
 
+#button-wrapper {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 #initial-entry-form {
   display: none;
 }
