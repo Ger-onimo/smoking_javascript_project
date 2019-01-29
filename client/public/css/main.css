@@ -118,6 +118,16 @@ input[type=text], [type=number] {
 }
 
 
+#submit-form {
+  background: url("../img/healthSubmit.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 80%;
+  height: 75px;
+  width: 70px;
+  border: none;
+}
+
 
 .smoked-button {
   background: url("../img/smokingIcon.png");

@@ -36,7 +36,7 @@ FormView.prototype.createForm = function () {
   const submitFormButton = document.createElement('button');
   submitFormButton.id = 'submit-form';
   submitFormButton.type = 'submit';
-  submitFormButton.innerHTML = 'Start saving your life!';
+  // submitFormButton.innerHTML = 'Start saving your life!';
 
   this.element.appendChild(submitFormButton);
 };
