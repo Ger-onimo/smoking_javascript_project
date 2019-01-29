@@ -3,15 +3,16 @@ const PubSub = require('../helpers/pub_sub.js');
 
 const TimerView = function (element) {
   this.element = element;
-  this.time = document.getElementsByTagName('time')[0];
+  this.ran = false;
 };
 
 TimerView.prototype.bindEvents = function () {
   const timer = new TimerFunction();
 
-  PubSub.subscribe('FormView:new-user', (event) => {
-    this.createTimer()
-    timer.runTimer()
+
+PubSub.subscribe('FormView:new-user', (event) => {
+  this.createTimer()
+  timer.runTimer()
   });
 
 
