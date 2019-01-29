@@ -18,7 +18,7 @@ SmokedView.prototype.createSmokeButton = function () {
   container.id = 'smoke-button-container';
   const smokeButton = document.createElement('button');
   smokeButton.classList.add('smoked-button');
-  smokeButton.textContent = "I smoked";
+  // smokeButton.textContent = "I smoked";
   container.appendChild(smokeButton);
   this.element.appendChild(container);
   return smokeButton

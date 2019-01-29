@@ -100,3 +100,17 @@ html {
 #userData-button span {
   display: none;
 }
+
+.smoked-button {
+  background: url("../img/smokingIcon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 50%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+.smoked-button span {
+  display: none;
+}
