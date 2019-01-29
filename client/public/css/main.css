@@ -33,13 +33,13 @@ html {
 /* inputs */
 
 input[type=text], [type=number] {
-  width: 40%;
+  width: 30%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   font-size: 90%;
   font-family:  'Lato', sans-serif;
-  border-radius: 25px;
+  border-radius: 18px;
 }
 
 /* Buttons */
@@ -54,9 +54,7 @@ input[type=text], [type=number] {
   border: none;
 }
 
-#login span {
-  display: none;
-}
+
 
 #random-motive {
   background: url("../img/quoteIcon2.png");
@@ -68,9 +66,7 @@ input[type=text], [type=number] {
   border: none;
 }
 
-#random-motive span {
-  display: none;
-}
+
 
 
 #timer-button {
@@ -83,9 +79,7 @@ input[type=text], [type=number] {
   border: none;
 }
 
-#timer-button span {
-  display: none;
-}
+
 
 #lapse-button {
   background: url("../img/lapsesIcon.png");
@@ -97,9 +91,7 @@ input[type=text], [type=number] {
   border: none;
 }
 
-#lapse-button span {
-  display: none;
-}
+
 
 #userData-button {
   background: url("../img/userIcon.png");
@@ -111,9 +103,7 @@ input[type=text], [type=number] {
   border: none;
 }
 
-#userData-button span {
-  display: none;
-}
+
 
 .smoked-button {
   background: url("../img/smokingIcon.png");
@@ -123,8 +113,4 @@ input[type=text], [type=number] {
   height: 120px;
   width: 120px;
   border: none;
-}
-
-.smoked-button span {
-  display: none;
 }
