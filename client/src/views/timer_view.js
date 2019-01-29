@@ -48,6 +48,7 @@ TimerView.prototype.timerButton = function () {
 
 TimerView.prototype.hide = function () {
   let form = document.getElementById('timer-container');
+
   if (form.style.display === 'block') {
     form.style.display = 'none';
   }
