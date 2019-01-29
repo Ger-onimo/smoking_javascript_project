@@ -28,7 +28,6 @@ Savings.prototype.dailySavingCalculator = function () {
   let totalDeductions= 0;
 
   const savingsArray = this.cigaretteData.map((timestamp) => {
-
     totalDeductions += singleCigCost;
     const timeObject = this.timediff.timeBetween(timestamp.timestamp ,this.userData[0].timestamp);
     const timeMS = timeObject._milliseconds
