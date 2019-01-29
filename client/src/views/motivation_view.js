@@ -8,9 +8,12 @@ const MotivationView = function (element) {
 MotivationView.prototype.bindEvents = function () {
   const randMotivation = new RandMotivation();
   PubSub.subscribe('FormView:new-user', (event) => {
-    this.text = randMotivation.get();
-    this.createMotivContainer();
-    this.motiveButton();
+    if(!document.getElementById('motive-container')) {
+      this.text = randMotivation.get();
+      this.createMotivContainer();
+      this.motiveButton();
+    };
+
 
   });
 
