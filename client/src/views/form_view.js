@@ -24,8 +24,13 @@ FormView.prototype.createForm = function () {
   const inputs = this.createInputs();
 
   for (let i = 0; i < labels.length; i++) {
+
     this.element.appendChild(labels[i]);
     this.element.appendChild(inputs[i])
+    const container = document.createElement('div');
+    container.id = 'input-container';
+    container.appendChild(inputs[i]);
+    this.element.appendChild(container);
   }
 
   const submitFormButton = document.createElement('button');
@@ -77,11 +82,13 @@ FormView.prototype.createLabels = function () {
 };
 
 FormView.prototype.createInputs = function () {
+
   const cigType = document.createElement('input');
   cigType.id = 'cigBrand';
   cigType.type = 'text';
   cigType.placeholder = 'Brand eg Marlboro'
   cigType.required = true;
+
 
   const cigNumber = document.createElement('input');
   cigNumber.id = 'cigNumber';
