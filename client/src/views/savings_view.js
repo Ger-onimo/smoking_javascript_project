@@ -9,10 +9,16 @@ const SavingsView = function (element) {
 SavingsView.prototype.bindEvents = function () {
   const savingCalc = new Savings();
   savingCalc.bindEvents();
-    PubSub.subscribe('FormView:new-user', (event) => {
-      this.savings = savingCalc.dailySavingCalculator();
-      this.createSavings();
+  PubSub.subscribe('FormView:new-user', (event) => {
+    this.savings = savingCalc.dailySavingCalculator();
+    this.createSavings();
   })
+  PubSub.subscribe('SmokedView:user-smoked', (event) => {
+    debugger
+    this.savings = savingCalc.dailySavingCalculator();
+    this.createSavings();
+  })
+
 };
 
 SavingsView.prototype.createSavings = function () {

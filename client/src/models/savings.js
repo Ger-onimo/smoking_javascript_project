@@ -15,24 +15,20 @@ Savings.prototype.bindEvents = function () {
     this.cigaretteData = event.detail;
   })
   PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
-    this.userData = event.detail;
+    this.userData = event.detail[0];
   })
 };
-// TODO: daily savings accummulator
-
-// each daily saving add to accummulator
-// use a reduce or code an accummulator
 
 Savings.prototype.dailySavingCalculator = function () {
-  const singleCigCost = event.detail.cost/this.pack;
+  const singleCigCost = this.userData.cost/this.pack;
   let totalDeductions= 0;
 
   const savingsArray = this.cigaretteData.map((timestamp) => {
 
     totalDeductions += singleCigCost;
-    const timeObject = this.timediff.timeBetween(timestamp.timestamp ,this.userData[0].timestamp);
+    const timeObject = this.timediff.timeBetween(timestamp.timestamp ,this.userData.timestamp);
     const timeMS = timeObject._milliseconds
-    const dailySaving = event.detail.daily * singleCigCost;
+    const dailySaving = this.userData.daily * singleCigCost;
     const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
     const savingToDate = millisecondSaving * timeMS;
     const roundedSaving = savingToDate.toFixed(2);

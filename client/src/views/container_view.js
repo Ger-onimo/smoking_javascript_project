@@ -33,16 +33,10 @@ ContainerView.prototype.bindEvents = function() {
   });
 };
 
-////////savings
-
 ContainerView.prototype.createSavings = function () {
   const saving = new SavingsView(this.element);
   saving.bindEvents();
 };
-
-//////
-
-////////timer
 
 ContainerView.prototype.createTimer = function () {
   const timer = new TimerView(this.element);
@@ -105,7 +99,6 @@ ContainerView.prototype.hideCigaretteData = function () {
     form.style.display = 'block';
   }
 };
-
 
 ContainerView.prototype.userDataButton = function () {
   const button = document.getElementById('userData-button');
