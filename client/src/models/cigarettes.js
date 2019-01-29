@@ -11,9 +11,6 @@ const Cigarettes = function () {
 };
 
 Cigarettes.prototype.bindEvents = function () {
-  this.getCigaretteData();
-  this.getData();
-
   PubSub.subscribe('FormView:new-user', (event) => {
     const user = event.detail;
     if (!user.id) {
@@ -34,7 +31,8 @@ Cigarettes.prototype.bindEvents = function () {
   PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
     this.getCigaretteData();
   });
-
+  this.getData();
+  this.getCigaretteData();
 };
 
 Cigarettes.prototype.add = function (newUser) {
