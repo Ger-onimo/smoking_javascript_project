@@ -14,7 +14,7 @@ TimerView.prototype.bindEvents = function () {
     timer.runTimer()
   });
 
-
+this.timerButton(); //////
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timerContainer = document.getElementById('timer-container');
     this.element.removeChild(timerContainer);
@@ -35,6 +35,23 @@ TimerView.prototype.createTimer = function () {
   this.element.appendChild(container);
 };
 
+
+TimerView.prototype.timerButton = function () {
+  const button = document.getElementById('timer-button');
+  button.addEventListener('click', (event) => {
+    this.hide();
+  })
+};
+
+TimerView.prototype.hide = function () {
+  let form = document.getElementById('timer-container');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
+};
 
 
 module.exports = TimerView;

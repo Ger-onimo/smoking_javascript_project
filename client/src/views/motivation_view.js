@@ -6,11 +6,11 @@ const MotivationView = function (element) {
 };
 
 MotivationView.prototype.bindEvents = function () {
-const randMotivation = new RandMotivation();
+  const randMotivation = new RandMotivation();
   PubSub.subscribe('FormView:new-user', (event) => {
     this.text = randMotivation.get();
     this.createMotivContainer();
-this.motiveButton();
+    this.motiveButton();
 
   });
 
@@ -36,11 +36,11 @@ MotivationView.prototype.createMotivContainer = function () {
 MotivationView.prototype.motiveButton = function () {
   const button = document.getElementById('random-motive');
   button.addEventListener('click', (event) => {
-    this.hideForm();
+    this.hide();
   })
 };
 
-MotivationView.prototype.hideForm = function () {
+MotivationView.prototype.hide = function () {
   let form = document.getElementById('motive-container');
   if (form.style.display === 'block') {
     form.style.display = 'none';
