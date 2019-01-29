@@ -107,6 +107,16 @@ input[type=text], [type=number] {
   border: none;
 }
 
+#savings-button {
+  background: url("../img/savingsIcon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 40%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
 
 
 .smoked-button {
