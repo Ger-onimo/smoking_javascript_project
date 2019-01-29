@@ -4,22 +4,26 @@ const Savings = require('../models/savings.js');
 const SavingsView = function (element) {
   this.element = element;
   this.savings = null;
+  this.saving = new Savings();
 };
 
 SavingsView.prototype.bindEvents = function () {
-  const savingCalc = new Savings();
-  savingCalc.bindEvents();
+  this.saving.bindEvents();
 
   PubSub.subscribe('FormView:new-user', (event) => {
-    this.savings = savingCalc.dailySavingCalculator();
+    this.savings = this.saving.dailySavingCalculator();
     this.createContainer();
     this.createSavings();
   })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
-    this.savings = savingCalc.dailySavingCalculator();
+    this.savings = this.saving.dailySavingCalculator();
     this.createContainer();
     this.createSavings();
   })
+  const test = document.createElement('div');
+  test.id = 'test-acc';
+  this.element.appendChild(test);
+
 };
 
 SavingsView.prototype.createSavings = function () {
@@ -36,4 +40,7 @@ SavingsView.prototype.createContainer = function () {
   this.element.appendChild(container);
 };
 
+SavingsView.prototype.createAccumulated = function () {
+
+};
 module.exports = SavingsView;

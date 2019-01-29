@@ -32,7 +32,6 @@ Cigarettes.prototype.bindEvents = function () {
     this.getCigaretteData();
   });
   this.getData();
-  this.getCigaretteData();
 };
 
 Cigarettes.prototype.add = function (newUser) {

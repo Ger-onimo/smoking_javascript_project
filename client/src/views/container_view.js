@@ -11,14 +11,7 @@ const ContainerView = function (element) {
 }
 
 ContainerView.prototype.bindEvents = function() {
-  this.createSmokedButton();
-  this.lapseButton();
-  this.userDataButton();
-  this.createMotivation();
-  this.createTimer();
-  this.createInputData();
-  this.createCigaretteData();
-  this.createSavings();
+  this.setupPage();
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
     const items = evt.detail;
     this.renderInputData(items);
@@ -31,6 +24,17 @@ ContainerView.prototype.bindEvents = function() {
     const items = evt.detail;
     this.renderCigaretteData(items)
   });
+};
+
+ContainerView.prototype.setupPage = function () {
+  this.createSmokedButton();
+  this.lapseButton();
+  this.userDataButton();
+  this.createMotivation();
+  this.createTimer();
+  this.createInputData();
+  this.createCigaretteData();
+  this.createSavings();
 };
 
 ContainerView.prototype.createSavings = function () {
