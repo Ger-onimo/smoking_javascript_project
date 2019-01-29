@@ -14,7 +14,7 @@ TimerView.prototype.bindEvents = function () {
     timer.runTimer()
   });
 
-this.timerButton(); //////
+  this.timerButton();
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timerContainer = document.getElementById('timer-container');
     this.element.removeChild(timerContainer);
