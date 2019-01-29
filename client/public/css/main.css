@@ -1,5 +1,11 @@
 h1 {
-  color: blue;
+  color: white;
+}
+
+html {
+  background-image: linear-gradient(-90deg, #0076BA, #99195E);
+  font-family: 'Lato', sans-serif;
+  color: white;
 }
 
 #initial-entry-form {
@@ -19,5 +25,78 @@ h1 {
 }
 
 #input-data-container {
+  display: none;
+}
+
+/* Buttons */
+
+#login {
+  background: url("../img/settingsIcon2.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 68%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+#login span {
+  display: none;
+}
+
+#random-motive {
+  background: url("../img/quoteIcon2.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 90%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+#random-motive span {
+  display: none;
+}
+
+
+#timer-button {
+  background: url("../img/timerIcon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 60%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+#timer-button span {
+  display: none;
+}
+
+#lapse-button {
+  background: url("../img/lapsesIcon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 50%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+#lapse-button span {
+  display: none;
+}
+
+#userData-button {
+  background: url("../img/userIcon.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 50%;
+  height: 120px;
+  width: 120px;
+  border: none;
+}
+
+#userData-button span {
   display: none;
 }
