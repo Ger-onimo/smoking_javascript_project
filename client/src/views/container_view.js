@@ -3,6 +3,7 @@ const UserDetailsView = require('./user_details_view.js');
 const SmokedView = require('./smoked_view.js');
 const CigaretteDetailsView = require('./cigarette_detail_view.js');
 const TimerView = require('./timer_view.js'); /////timer
+const SavingsView = require('./savings_view.js') ///savings
 const MotivationView = require('./motivation_view.js')
 
 const ContainerView = function (element) {
@@ -15,6 +16,7 @@ ContainerView.prototype.bindEvents = function() {
   this.userDataButton();
   this.createMotivation();
   this.createTimer();
+  this.createSavings();
   this.createInputData();
   this.createCigaretteData();
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
@@ -30,6 +32,17 @@ ContainerView.prototype.bindEvents = function() {
     this.renderCigaretteData(items)
   });
 };
+
+////////savings
+
+ContainerView.prototype.createSavings = function () {
+  const saving = new SavingsView(this.element);
+  saving.bindEvents();
+};
+
+//////
+
+////////timer
 
 ContainerView.prototype.createTimer = function () {
   const timer = new TimerView(this.element);
