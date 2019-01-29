@@ -8,6 +8,8 @@ html {
   color: white;
 }
 
+/* containers */
+
 #initial-entry-form {
   display: none;
 }
@@ -26,6 +28,18 @@ html {
 
 #input-data-container {
   display: none;
+}
+
+/* inputs */
+
+input[type=text], [type=number] {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 90%;
+  font-family:  'Lato', sans-serif;
+  border-radius: 25px;
 }
 
 /* Buttons */
