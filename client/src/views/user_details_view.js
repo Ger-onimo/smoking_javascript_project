@@ -49,13 +49,13 @@ UserDetailsView.prototype.createBrandElement = function () {
 
 UserDetailsView.prototype.createDailyElement = function () {
   const daily = document.createElement('li');
-  daily.textContent = `Daily: ${this.itemData.daily}`;
+  daily.textContent = `Smoked per Day: ${this.itemData.daily}`;
   return daily;
 };
 
 UserDetailsView.prototype.createCostElement = function () {
   const cost = document.createElement('li');
-  cost.textContent = `Cost: ${this.itemData.cost}`;
+  cost.textContent = `Price per Pack: ${this.itemData.cost}`;
   return cost;
 };
 
