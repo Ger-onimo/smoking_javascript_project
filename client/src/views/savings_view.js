@@ -20,10 +20,6 @@ SavingsView.prototype.bindEvents = function () {
     this.createContainer();
     this.createSavings();
   })
-  const test = document.createElement('div');
-  test.id = 'test-acc';
-  this.element.appendChild(test);
-
 };
 
 SavingsView.prototype.createSavings = function () {

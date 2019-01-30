@@ -16,58 +16,39 @@ Savings.prototype.bindEvents = function () {
     this.userData = event.detail[0];
   })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
-    let initialData = {};
     this.cigaretteData = event.detail;
-    initialData = {
-      pack: 20,
-      cigData: this.cigaretteData,
-      userData: this.userData,
-    }
-    return initialData
   })
-
 };
 
 Savings.prototype.dailySavingCalculator = function () {
   const singleCigCost = this.userData.cost/this.pack;
   let totalDeductions= 0;
+  let totalArray = [];
 
-  const savingsArray = this.cigaretteData.map((timestamp) => {
-
-    totalDeductions += singleCigCost;
-    const timeObject = this.timediff.timeBetween(timestamp.timestamp ,this.userData.timestamp);
+  if (this.cigaretteData.length === 0) {
+    const timeObject = this.timediff.timeBetween(moment() ,this.userData.timestamp);
     const timeMS = timeObject._milliseconds
     const dailySaving = this.userData.daily * singleCigCost;
     const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
     const savingToDate = millisecondSaving * timeMS;
     const final = savingToDate - totalDeductions;
     const roundedFinal = final.toFixed(2);
-    return roundedFinal;
-  })
-  return savingsArray;
-};
-
-Savings.prototype.continuedSaving = function (object) {
-  const interval = setInterval(this.accumulate(object), 1000);
-};
-
-Savings.prototype.accumulate = function (object) {
-  const singleCigCost = this.userData.cost/this.pack;
-  const totalDeductions = this.cigaretteData.length * singleCigCost;
-
-  const time = this.timediff.timeBetween(moment(), this.userData.timestamp);
-  const timeMS = time._milliseconds;
-
-  const dailySaving = this.userData.daily * singleCigCost;
-  const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
-
-
-  const savingToDate = millisecondSaving * timeMS;
-  const final = savingToDate - totalDeductions;
-  const roundedFinal = final.toFixed(2);
-
-
-  document.getElementById('test-acc').innerHTML = `£ ${roundedFinal}`;
+    totalArray.push(roundedFinal);
+  }
+  else {
+    totalArray = this.cigaretteData.map((timestamp) => {
+      totalDeductions += singleCigCost;
+      const timeObject = this.timediff.timeBetween(moment() ,this.userData.timestamp);
+      const timeMS = timeObject._milliseconds
+      const dailySaving = this.userData.daily * singleCigCost;
+      const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
+      const savingToDate = millisecondSaving * timeMS;
+      const final = savingToDate - totalDeductions;
+      const roundedFinal = final.toFixed(2);
+      return roundedFinal;
+    })
+  }
+  return totalArray;
 };
 
 module.exports = Savings;
