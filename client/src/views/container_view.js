@@ -104,6 +104,23 @@ ContainerView.prototype.lapseButton = function () {
 };
 
 ContainerView.prototype.hideCigaretteData = function () {
+  const login = document.getElementById('initial-entry-form');
+  login.style.display = 'none';
+
+  const user = document.getElementById('input-data-container');
+  user.style.display = 'none';
+
+  const savings = document.getElementById('savings-container');
+  savings.style.display = 'none';
+
+  const timer = document.getElementById('timer-container');
+  if (timer){
+  timer.style.display = 'none';}
+
+  const motivation = document.getElementById('motive-container');
+  if (motivation){
+  motivation.style.display = 'none';}
+
   let form = document.getElementById('cigarette-data-container');
   if (form.style.display === 'block') {
     form.style.display = 'none';
@@ -122,6 +139,28 @@ ContainerView.prototype.userDataButton = function () {
 
 ContainerView.prototype.hideUserData = function () {
   let form = document.getElementById('input-data-container');
+  this.hideAll(form);
+};
+
+ContainerView.prototype.hideAll = function (form) {
+  const login = document.getElementById('initial-entry-form');
+  login.style.display = 'none';
+
+  const cigDetails = document.getElementById('cigarette-data-container');
+  cigDetails.style.display = 'none';
+
+  const savings = document.getElementById('savings-container');
+  savings.style.display = 'none';
+
+  const timer = document.getElementById('timer-container');
+  if (timer){
+  timer.style.display = 'none';}
+
+  const motivation = document.getElementById('motive-container');
+  if (motivation){
+  motivation.style.display = 'none';}
+
+
   if (form.style.display === 'block') {
     form.style.display = 'none';
   }

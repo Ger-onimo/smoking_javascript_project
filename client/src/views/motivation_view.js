@@ -56,6 +56,23 @@ MotivationView.prototype.motiveButton = function () {
 };
 
 MotivationView.prototype.hide = function () {
+  const login = document.getElementById('initial-entry-form');
+  login.style.display = 'none';
+  
+  const user = document.getElementById('input-data-container');
+  user.style.display = 'none';
+
+  const savings = document.getElementById('savings-container');
+  savings.style.display = 'none';
+
+  const timer = document.getElementById('timer-container');
+  if (timer){
+  timer.style.display = 'none';}
+
+  const cig = document.getElementById('cigarette-data-container');
+  if (cig){
+  cig.style.display = 'none';}
+
   let form = document.getElementById('motive-container');
   if (form.style.display === 'block') {
     form.style.display = 'none';

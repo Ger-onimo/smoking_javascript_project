@@ -60,15 +60,29 @@ TimerView.prototype.timerButton = function () {
 };
 
 TimerView.prototype.hide = function () {
-  if (document.getElementById('timer-container')) {
-    let form = document.getElementById('timer-container');
+  const login = document.getElementById('initial-entry-form');
+  login.style.display = 'none';
+  
+  const user = document.getElementById('input-data-container');
+  user.style.display = 'none';
 
-    if (form.style.display === 'block') {
-      form.style.display = 'none';
-    }
-    else {
-      form.style.display = 'block';
-    }
+  const savings = document.getElementById('savings-container');
+  savings.style.display = 'none';
+
+  const motive = document.getElementById('motive-container');
+  if (motive){
+  motive.style.display = 'none';}
+
+  const cig = document.getElementById('cigarette-data-container');
+  if (cig){
+  cig.style.display = 'none';}
+
+  let form = document.getElementById('timer-container');
+  if (form.style.display === 'block') {
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
   }
 };
 
