@@ -29,15 +29,11 @@ ul {
   flex-direction: column;
 }
 
-/* #view-wrapper {
-  display: flex;
-  flex-direction: column;
-} */
-
 #container-wrapper {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-self: center;
 }
 
 #initial-entry-form {
@@ -52,9 +48,6 @@ ul {
   /* position: absolute;
   top: 50%;
   left: 50%; */
-  display: flex;
-  justify-content: center;
-  align-self: center;
 }
 
 #timer-container {
