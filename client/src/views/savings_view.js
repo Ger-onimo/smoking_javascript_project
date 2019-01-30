@@ -11,9 +11,15 @@ SavingsView.prototype.bindEvents = function () {
   savingCalc.bindEvents();
     PubSub.subscribe('FormView:new-user', (event) => {
       this.savings = savingCalc.dailySavingCalculator();
+      if (!document.getElementById('savings-container')) {
       this.createSavings();
+}
   })
+
+  this.savingsButton();
 };
+
+
 
 SavingsView.prototype.createSavings = function () {
   const container = document.createElement('div');
@@ -23,6 +29,26 @@ SavingsView.prototype.createSavings = function () {
   savings.textContent = `Saving total: £${this.savings[this.savings.length - 1]}`;
   container.appendChild(savings);
   this.element.appendChild(container);
+};
+
+SavingsView.prototype.savingsButton = function () {
+  const button = document.getElementById('savings-button');
+  button.addEventListener('click', (event) => {
+    this.hideSavings();
+  })
+};
+
+SavingsView.prototype.hideSavings = function () {
+  if (document.getElementById('savings-container')) {
+    let form = document.getElementById('savings-container');
+
+    if (form.style.display === 'block') {
+      form.style.display = 'none';
+    }
+    else {
+      form.style.display = 'block';
+    }
+  }
 };
 
 module.exports = SavingsView;
