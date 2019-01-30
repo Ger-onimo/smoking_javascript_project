@@ -1,5 +1,4 @@
 const PubSub = require('../helpers/pub_sub.js');
-const moment = require('moment');
 
 const CigaretteDetailsView = function (element, itemData) {
   this.element = element;
@@ -10,6 +9,7 @@ CigaretteDetailsView.prototype.render = function () {
 
   const element = document.createElement('ul');
   element.classList.add('cigarette-data-container');
+
   const listItems = this.createListElement();
   element.appendChild(listItems);
 
@@ -20,15 +20,9 @@ CigaretteDetailsView.prototype.render = function () {
 CigaretteDetailsView.prototype.createListElement = function () {
   const list = document.createElement('li');
   list.classList.add('cigarette-detail');
-  list.textContent = this.formatText();
-
+  list.textContent = this.itemData.timestamp;
   return list;
 
-};
-
-CigaretteDetailsView.prototype.formatText = function () {
-  const text = this.itemData.timestamp;
-  return moment(text).format("DD/MM/YYYY - HH:mm:ss");
 };
 
 module.exports = CigaretteDetailsView;
