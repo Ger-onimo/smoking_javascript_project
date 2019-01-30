@@ -7,14 +7,27 @@ const MotivationView = function (element) {
 
 MotivationView.prototype.bindEvents = function () {
   const randMotivation = new RandMotivation();
-  PubSub.subscribe('FormView:new-user', (event) => {
+
+  const button = document.getElementById('random-motive');
+  button.addEventListener('click', (event) => {
+    debugger;
     if(!document.getElementById('motive-container')) {
+
       this.text = randMotivation.get();
       this.createMotivContainer();
     };
+    this.hide();
+  })
 
-    this.motiveButton();
-  });
+
+  // PubSub.subscribe('FormView:new-user', (event) => {
+  //   if(!document.getElementById('motive-container')) {
+  //     this.text = randMotivation.get();
+  //     this.createMotivContainer();
+  //   };
+  //
+  //   this.motiveButton();
+  // });
 
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const motivContainer = document.getElementById('motive-container');
