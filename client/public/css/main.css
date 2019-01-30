@@ -64,6 +64,8 @@ ul {
   text-align: center;
   font-size: 130%;
   font-family:  'Lato', sans-serif;
+  height: 300px;
+  overflow-y: scroll;
 }
 
 #input-data-container {

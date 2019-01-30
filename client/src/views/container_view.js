@@ -83,9 +83,13 @@ ContainerView.prototype.createCigaretteData = function () {
 ContainerView.prototype.renderCigaretteData = function (items) {
   const dataContainer = document.getElementById('cigarette-data-container');
   dataContainer.innerHTML = '';
+  const headingDiv = document.createElement('div');
+  headingDiv.id = 'heading';
   const heading = document.createElement('H3');
   heading.textContent = 'Your Smoking History:'
-  dataContainer.appendChild(heading);
+  headingDiv.appendChild(heading);
+  dataContainer.appendChild(headingDiv);
+
   items.forEach((item) => {
     const cigaretteDetailView = new CigaretteDetailsView(dataContainer, item);
     cigaretteDetailView.render();
