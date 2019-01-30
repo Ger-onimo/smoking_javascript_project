@@ -7,21 +7,31 @@ const MotivationView = function (element) {
 
 MotivationView.prototype.bindEvents = function () {
   const randMotivation = new RandMotivation();
-  PubSub.subscribe('FormView:new-user', (event) => {
+
+  const button = document.getElementById('random-motive');
+  button.addEventListener('click', (event) => {
     if(!document.getElementById('motive-container')) {
+
       this.text = randMotivation.get();
       this.createMotivContainer();
-      this.motiveButton();
     };
+    this.hide();
+  })
 
-
-  });
+  // PubSub.subscribe('FormView:new-user', (event) => {
+  //   if(!document.getElementById('motive-container')) {
+  //     this.text = randMotivation.get();
+  //     this.createMotivContainer();
+  //   };
+  //
+  //   this.motiveButton();
+  // });
 
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const motivContainer = document.getElementById('motive-container');
     if (document.getElementById('motive-container')) {
-    this.element.removeChild(motivContainer);
-  }
+      this.element.removeChild(motivContainer);
+    }
     this.text = randMotivation.get();
     this.createMotivContainer();
   });
@@ -54,10 +64,5 @@ MotivationView.prototype.hide = function () {
     form.style.display = 'block';
   }
 };
-
-
-// const motivation = randMotivation.get();
-// const message = `  ${motivation}.`;
-// messageElement.textContent = message;
 
 module.exports = MotivationView;

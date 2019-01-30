@@ -27,6 +27,7 @@ ul {
   top: 0;
   display: flex;
   flex-direction: column;
+  width: 15%;
 }
 
 #container-wrapper {
@@ -34,6 +35,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-self: center;
+  width: 75%;
 }
 
 #initial-entry-form {
