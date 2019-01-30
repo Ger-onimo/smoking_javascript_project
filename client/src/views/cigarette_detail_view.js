@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 const CigaretteDetailsView = function (element, itemData) {
   this.element = element;
@@ -9,7 +10,6 @@ CigaretteDetailsView.prototype.render = function () {
 
   const element = document.createElement('ul');
   element.classList.add('cigarette-data-container');
-
   const listItems = this.createListElement();
   element.appendChild(listItems);
 
@@ -20,29 +20,15 @@ CigaretteDetailsView.prototype.render = function () {
 CigaretteDetailsView.prototype.createListElement = function () {
   const list = document.createElement('li');
   list.classList.add('cigarette-detail');
-  list.textContent = this.itemData.timestamp;
+  list.textContent = this.formatText();
+
   return list;
 
 };
 
-
-
-// CigaretteDetailsView.prototype.lapseButton = function () {
-//   const button = document.getElementById('lapse-button');
-//   button.addEventListener('click', (event) => {
-//     debugger;
-//     this.hide();
-//   })
-// };
-//
-// CigaretteDetailsView.prototype.hide = function () {
-//   let form = document.getElementById('cigarette-data-container');
-//   if (form.style.display === 'block') {
-//     form.style.display = 'none';
-//   }
-//   else {
-//     form.style.display = 'block';
-//   }
-// };
+CigaretteDetailsView.prototype.formatText = function () {
+  const text = this.itemData.timestamp;
+  return moment(text).format("DD/MM/YYYY - HH:mm:ss");
+};
 
 module.exports = CigaretteDetailsView;
