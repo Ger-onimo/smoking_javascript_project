@@ -49,7 +49,7 @@ SavingsView.prototype.savingButton = function () {
 
 SavingsView.prototype.hide = function () {
   const form = document.getElementById('savings-container');
-  if (form.style.display === 'block'){
+  if (form.style.display === 'block' || form.style.display === ''){
     form.style.display = 'none';
   }
   else {

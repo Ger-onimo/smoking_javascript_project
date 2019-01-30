@@ -76,7 +76,7 @@ ul {
 }
 
 #savings-container {
-  display: none;
+  display: block;
   text-align: center;
   font-size: 250%;
   font-family:  'Lato', sans-serif;
