@@ -9,16 +9,27 @@ const TimerView = function (element) {
 TimerView.prototype.bindEvents = function () {
   const timer = new TimerFunction();
 
-  PubSub.subscribe('FormView:new-user', (event) => {
+
+  const button = document.getElementById('timer-button');
+  button.addEventListener('click', (event) => {
     if (!document.getElementById('timer-container')) {
       this.createTimer()
       timer.runTimer()
     }
+    this.hide();
+  })
 
-  });
 
-  this.timerButton();
-  
+  // PubSub.subscribe('FormView:new-user', (event) => {
+  //   if (!document.getElementById('timer-container')) {
+  //     this.createTimer()
+  //     timer.runTimer()
+  //   }
+  //
+  // });
+  //
+  // this.timerButton();
+
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timerContainer = document.getElementById('timer-container');
     if(document.getElementById('timer-container')) {
