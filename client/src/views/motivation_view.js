@@ -11,17 +11,16 @@ MotivationView.prototype.bindEvents = function () {
     if(!document.getElementById('motive-container')) {
       this.text = randMotivation.get();
       this.createMotivContainer();
-      this.motiveButton();
     };
 
-
+    this.motiveButton();
   });
 
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const motivContainer = document.getElementById('motive-container');
     if (document.getElementById('motive-container')) {
-    this.element.removeChild(motivContainer);
-  }
+      this.element.removeChild(motivContainer);
+    }
     this.text = randMotivation.get();
     this.createMotivContainer();
   });
