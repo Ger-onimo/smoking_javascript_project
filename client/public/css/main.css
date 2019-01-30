@@ -29,9 +29,15 @@ ul {
   flex-direction: column;
 }
 
-#view-wrapper {
+/* #view-wrapper {
   display: flex;
   flex-direction: column;
+} */
+
+#container-wrapper {
+  display: flex;
+  flex-direction: column;
+
 }
 
 #initial-entry-form {
@@ -54,7 +60,7 @@ ul {
 #timer-container {
   display: none;
   text-align: center;
-  font-size: 250%;
+  font-size: 280%;
   font-family:  'Lato', sans-serif;
 }
 
@@ -73,7 +79,10 @@ ul {
 }
 
 #savings-container {
-  display: none
+  display: none;
+  text-align: center;
+  font-size: 200%;
+  font-family:  'Lato', sans-serif;
 }
 
 /* inputs */
