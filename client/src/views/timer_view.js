@@ -9,7 +9,6 @@ const TimerView = function (element) {
 TimerView.prototype.bindEvents = function () {
   const timer = new TimerFunction();
 
-
   const button = document.getElementById('timer-button');
   button.addEventListener('click', (event) => {
     if (!document.getElementById('timer-container')) {
@@ -19,21 +18,10 @@ TimerView.prototype.bindEvents = function () {
     this.hide();
   })
 
-
-  // PubSub.subscribe('FormView:new-user', (event) => {
-  //   if (!document.getElementById('timer-container')) {
-  //     this.createTimer()
-  //     timer.runTimer()
-  //   }
-  //
-  // });
-  //
-  // this.timerButton();
-
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timerContainer = document.getElementById('timer-container');
     if(document.getElementById('timer-container')) {
-    this.element.removeChild(timerContainer);
+      this.element.removeChild(timerContainer);
     }
     this.createTimer();
     timer.runTimer();
