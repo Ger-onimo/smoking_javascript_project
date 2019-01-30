@@ -12,6 +12,7 @@ const ContainerView = function (element) {
 
 ContainerView.prototype.bindEvents = function() {
   this.setupPage();
+
   PubSub.subscribe('Cigarettes:user-data-ready', (evt) => {
     const items = evt.detail;
     this.renderInputData(items);
@@ -32,9 +33,9 @@ ContainerView.prototype.setupPage = function () {
   this.userDataButton();
   this.createMotivation();
   this.createTimer();
+  this.createSavings();
   this.createInputData();
   this.createCigaretteData();
-  this.createSavings();
 };
 
 ContainerView.prototype.createSavings = function () {
@@ -103,6 +104,7 @@ ContainerView.prototype.hideCigaretteData = function () {
     form.style.display = 'block';
   }
 };
+
 
 ContainerView.prototype.userDataButton = function () {
   const button = document.getElementById('userData-button');
