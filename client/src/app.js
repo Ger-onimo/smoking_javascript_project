@@ -15,6 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('section#container-wrapper');
   const containerView = new ContainerView(container);
   containerView.bindEvents();
-
-
 })

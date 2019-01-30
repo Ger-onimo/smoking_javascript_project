@@ -11,9 +11,6 @@ const Cigarettes = function () {
 };
 
 Cigarettes.prototype.bindEvents = function () {
-  this.getCigaretteData();
-  this.getData();
-
   PubSub.subscribe('FormView:new-user', (event) => {
     const user = event.detail;
     if (!user.id) {
@@ -29,8 +26,12 @@ Cigarettes.prototype.bindEvents = function () {
       timestamp: timestamp
     };
     this.add(newSmoke);
+  });
+
+  PubSub.subscribe('Cigarettes:user-data-ready', (event) => {
     this.getCigaretteData();
-  })
+  });
+  this.getData();
 };
 
 Cigarettes.prototype.add = function (newUser) {
@@ -64,7 +65,6 @@ Cigarettes.prototype.getCigaretteData = function () {
       this.info = data.filter((obj) => {
         return (!obj.brand && !obj.motivation);
       })
-
       PubSub.publish('Cigarettes:cigarette-data-ready', this.info);
     })
 };
