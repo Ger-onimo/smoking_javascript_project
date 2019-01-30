@@ -109,7 +109,6 @@ ContainerView.prototype.hideCigaretteData = function () {
   }
 };
 
-
 ContainerView.prototype.userDataButton = function () {
   const button = document.getElementById('userData-button');
   button.addEventListener('click', (event) => {
