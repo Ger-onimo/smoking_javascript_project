@@ -10,7 +10,6 @@ MotivationView.prototype.bindEvents = function () {
 
   const button = document.getElementById('random-motive');
   button.addEventListener('click', (event) => {
-    debugger;
     if(!document.getElementById('motive-container')) {
 
       this.text = randMotivation.get();
@@ -18,7 +17,6 @@ MotivationView.prototype.bindEvents = function () {
     };
     this.hide();
   })
-
 
   // PubSub.subscribe('FormView:new-user', (event) => {
   //   if(!document.getElementById('motive-container')) {
@@ -66,10 +64,5 @@ MotivationView.prototype.hide = function () {
     form.style.display = 'block';
   }
 };
-
-
-// const motivation = randMotivation.get();
-// const message = `  ${motivation}.`;
-// messageElement.textContent = message;
 
 module.exports = MotivationView;
