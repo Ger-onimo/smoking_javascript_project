@@ -25,14 +25,8 @@ Savings.prototype.dailySavingCalculator = function () {
   let totalDeductions= 0;
   let totalArray = [];
 
-<<<<<<< HEAD
   if (this.cigaretteData.length === 0) {
     const timeObject = this.timediff.timeBetween(moment() ,this.userData.timestamp);
-=======
-  const savingsArray = this.cigaretteData.map((timestamp) => {
-    totalDeductions += singleCigCost;
-    const timeObject = this.timediff.timeBetween(timestamp.timestamp ,this.userData[0].timestamp);
->>>>>>> develop
     const timeMS = timeObject._milliseconds
     const dailySaving = this.userData.daily * singleCigCost;
     const millisecondSaving = dailySaving / 24 / 60 / 60 / 1000;
