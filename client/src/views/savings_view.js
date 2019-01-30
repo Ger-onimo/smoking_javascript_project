@@ -33,7 +33,7 @@ SavingsView.prototype.createContainer = function () {
   if (!document.getElementById('savings-container')){
     const container = document.createElement('div');
     container.id = 'savings-container';
-    const savings = document.createElement('h3');
+    const savings = document.createElement('p');
     savings.id = 'saving-accumulator';
     container.appendChild(savings);
     this.element.appendChild(container);
