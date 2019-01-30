@@ -45,7 +45,7 @@ ul {
 #motive-container {
   display: none;
   text-align: center;
-  font-size: 200%;
+  font-size: 250%;
   font-family:  'Lato', sans-serif;
   /* position: absolute;
   top: 50%;
@@ -55,7 +55,7 @@ ul {
 #timer-container {
   display: none;
   text-align: center;
-  font-size: 280%;
+  font-size: 250%;
   font-family:  'Lato', sans-serif;
 }
 
@@ -69,14 +69,14 @@ ul {
 #input-data-container {
   display: none;
   text-align: center;
-  font-size: 200%;
+  font-size: 250%;
   font-family:  'Lato', sans-serif;
 }
 
 #savings-container {
   display: none;
   text-align: center;
-  font-size: 200%;
+  font-size: 250%;
   font-family:  'Lato', sans-serif;
 }
 
