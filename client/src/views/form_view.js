@@ -24,14 +24,19 @@ FormView.prototype.createForm = function () {
   const inputs = this.createInputs();
 
   for (let i = 0; i < labels.length; i++) {
+
     this.element.appendChild(labels[i]);
     this.element.appendChild(inputs[i])
+    const container = document.createElement('div');
+    container.id = 'input-container';
+    container.appendChild(inputs[i]);
+    this.element.appendChild(container);
   }
 
   const submitFormButton = document.createElement('button');
   submitFormButton.id = 'submit-form';
   submitFormButton.type = 'submit';
-  submitFormButton.innerHTML = 'Start saving your life!';
+  // submitFormButton.innerHTML = 'Start saving your life!';
 
   this.element.appendChild(submitFormButton);
 };
@@ -62,37 +67,41 @@ FormView.prototype.handleFormSubmit = function (event) {
 FormView.prototype.createLabels = function () {
   const cigLabel = document.createElement('label');
   cigLabel.for = 'cigBrand';
-  cigLabel.innerHTML = 'Brand: ';
+  // cigLabel.innerHTML = 'Brand: ';
 
   const numLabel = document.createElement('label');
   numLabel.for = 'cigNumber';
-  numLabel.innerHTML = 'Number per day: '
+  // numLabel.innerHTML = 'Number per day: '
 
   const costLabel = document.createElement('label');
   costLabel.for = 'cost';
-  costLabel.innerHTML = 'Price per pack (£): ';
+  // costLabel.innerHTML = 'Price per pack (£): ';
 
   const labels = [cigLabel, numLabel, costLabel];
   return labels;
 };
 
 FormView.prototype.createInputs = function () {
+
   const cigType = document.createElement('input');
   cigType.id = 'cigBrand';
   cigType.type = 'text';
-  cigType.placeholder = 'Enter Brand..'
+  cigType.placeholder = 'Brand eg Marlboro'
   cigType.required = true;
+
 
   const cigNumber = document.createElement('input');
   cigNumber.id = 'cigNumber';
   cigNumber.type = 'number';
   cigNumber.min = 1;
+  cigNumber.placeholder = 'Number per day'
   cigNumber.required = true;
 
   const cost = document.createElement('input');
   cost.id = 'cost';
   cost.type = 'number';
   cost.min = 1;
+  cost.placeholder = 'Price per pack (£)'
   cost.required = true;
 
   const inputs = [cigType, cigNumber, cost];
