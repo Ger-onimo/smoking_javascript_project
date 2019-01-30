@@ -14,12 +14,14 @@ SavingsView.prototype.bindEvents = function () {
     this.savings = this.saving.dailySavingCalculator();
     this.createContainer();
     this.createSavings();
+
   })
   PubSub.subscribe('Cigarettes:cigarette-data-ready', (event) => {
     this.savings = this.saving.dailySavingCalculator();
     this.createContainer();
     this.createSavings();
   })
+  this.savingButton();
 };
 
 SavingsView.prototype.createSavings = function () {
@@ -28,15 +30,30 @@ SavingsView.prototype.createSavings = function () {
 };
 
 SavingsView.prototype.createContainer = function () {
-  const container = document.createElement('div');
-  container.id = 'savings-container';
-  const savings = document.createElement('h3');
-  savings.id = 'saving-accumulator';
-  container.appendChild(savings);
-  this.element.appendChild(container);
+  if (!document.getElementById('savings-container')){
+    const container = document.createElement('div');
+    container.id = 'savings-container';
+    const savings = document.createElement('h3');
+    savings.id = 'saving-accumulator';
+    container.appendChild(savings);
+    this.element.appendChild(container);
+  }
 };
 
-SavingsView.prototype.createAccumulated = function () {
+SavingsView.prototype.savingButton = function () {
+  const button = document.getElementById('savings-button');
+  button.addEventListener('click', (event) => {
+    this.hide();
+  })
+};
 
+SavingsView.prototype.hide = function () {
+  const form = document.getElementById('savings-container');
+  if (form.style.display === 'block'){
+    form.style.display = 'none';
+  }
+  else {
+    form.style.display = 'block';
+  }
 };
 module.exports = SavingsView;
