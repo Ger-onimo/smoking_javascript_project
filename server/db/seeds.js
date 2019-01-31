@@ -4,9 +4,9 @@ db.dropDatabase();
 db.cigarettes.insertMany([
   {
     brand: "Regal King Size",
-    daily: 1,
-    cost: 1,
-    timestamp: "2019-01-28T09:27:09.089Z"
+    daily: 20,
+    cost: 10,
+    timestamp: "2018-01-28T09:27:09.089Z"
   },
   {
 		timestamp: "2019-01-27T16:22:18.794Z"
