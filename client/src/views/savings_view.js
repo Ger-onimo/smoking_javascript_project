@@ -26,7 +26,7 @@ SavingsView.prototype.bindEvents = function () {
 
 SavingsView.prototype.createSavings = function () {
   const savingsElement = document.getElementById('saving-accumulator');
-  savingsElement.textContent = `Saving total: £${this.savings[this.savings.length-1]}`;
+  savingsElement.textContent = `You've saved: £${this.savings[this.savings.length-1]}!`;
 };
 
 SavingsView.prototype.createContainer = function () {
@@ -50,7 +50,7 @@ SavingsView.prototype.savingButton = function () {
 SavingsView.prototype.hide = function () {
   const login = document.getElementById('initial-entry-form');
   login.style.display = 'none';
-  
+
   const user = document.getElementById('input-data-container');
   user.style.display = 'none';
 
