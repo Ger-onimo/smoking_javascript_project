@@ -1,5 +1,6 @@
 const TimerFunction = require('../models/timer-function.js');
 const PubSub = require('../helpers/pub_sub.js');
+const moment = require('moment');
 
 const TimerView = function (element) {
   this.element = element;
@@ -32,7 +33,7 @@ TimerView.prototype.bindEvents = function () {
   PubSub.subscribe('SmokedView:user-smoked', (event) => {
     const timerContainer = document.getElementById('timer-container');
     if(document.getElementById('timer-container')) {
-    this.element.removeChild(timerContainer);
+      this.element.removeChild(timerContainer);
     }
     this.createTimer();
     timer.runTimer();
@@ -62,7 +63,7 @@ TimerView.prototype.timerButton = function () {
 TimerView.prototype.hide = function () {
   const login = document.getElementById('initial-entry-form');
   login.style.display = 'none';
-  
+
   const user = document.getElementById('input-data-container');
   user.style.display = 'none';
 
